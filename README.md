@@ -6,7 +6,8 @@
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CREDITS.md)
 
 **🌐 Live Demo:** [https://jesunahmadushno.github.io/drawing-modality-test/](https://jesunahmadushno.github.io/drawing-modality-test/)  
-**💻 Full App:** [Open in Codespaces](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=JesunAhmadUshno/drawing-modality-test)
+**💻 Full App:** [Open in Codespaces](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=JesunAhmadUshno/drawing-modality-test)  
+**📘 Setup Guide:** [SETUP_README.md](SETUP_README.md) - Complete installation & deployment instructions
 
 **Status:** ✅ Production Ready  
 **Version:** 3.0  

@@ -1,9 +1,15 @@
 # 🎨 PulseKey Assessment System - Drawing Modality Analysis
 
+[![GitHub Pages](https://img.shields.io/badge/demo-live-success)](https://jesunahmadushno.github.io/drawing-modality-test/)
+[![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
+**🌐 Live Demo:** [https://jesunahmadushno.github.io/drawing-modality-test/](https://jesunahmadushno.github.io/drawing-modality-test/)  
+**💻 Full App:** [Open in Codespaces](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=JesunAhmadUshno/drawing-modality-test)
+
 **Status:** ✅ Production Ready  
 **Version:** 3.0  
 **Date:** March 1, 2026  
-**Documentation:** See [COMPREHENSIVE_WORKLOG.md](COMPREHENSIVE_WORKLOG.md) for detailed technical documentation
 
 ---
 
@@ -40,7 +46,41 @@
 
 ---
 
-## 📁 Project Structure
+## � Deployment Options
+
+### 🌐 GitHub Pages (Frontend Demo)
+**Live Demo:** https://jesunahmadushno.github.io/drawing-modality-test/
+
+The frontend is automatically deployed to GitHub Pages. This shows the UI and allows drawing, but analysis features require the backend.
+
+### 💻 GitHub Codespaces (Full Application)
+**Recommended for development and testing with full analysis features.**
+
+1. Click the "Code" button → "Codespaces" → "Create codespace on main"
+2. Wait for environment setup (~2 minutes)
+3. Run: `python backend_api.py`
+4. Access via the forwarded port URL
+
+### 🏠 Local Development
+```bash
+# Clone repository
+git clone https://github.com/JesunAhmadUshno/drawing-modality-test.git
+cd drawing-modality-test
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Start backend
+python backend_api.py
+
+# Open browser to http://localhost:5000
+```
+
+For more deployment options, see [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md).
+
+---
+
+## �📁 Project Structure
 
 ```
 Drawing_Modality_Test_1/

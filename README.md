@@ -2,7 +2,8 @@
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-success)](https://jesunahmadushno.github.io/drawing-modality-test/)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CREDITS.md)
 
 **🌐 Live Demo:** [https://jesunahmadushno.github.io/drawing-modality-test/](https://jesunahmadushno.github.io/drawing-modality-test/)  
 **💻 Full App:** [Open in Codespaces](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=JesunAhmadUshno/drawing-modality-test)
@@ -1083,9 +1084,36 @@ For comprehensive technical documentation covering:
 
 ---
 
+## 🙏 Acknowledgments & Credits
+
+This project was made possible through the use of numerous open-source tools and libraries:
+
+### Core Technologies
+- **Python Ecosystem**: NumPy, Pandas, SciPy, OpenCV, scikit-image, Flask
+- **Computer Vision**: OpenCV (contour detection, SIFT, Hu moments), scikit-image (SSIM)
+- **Visualization**: Chart.js, Matplotlib, Seaborn
+- **Infrastructure**: GitHub Pages, GitHub Codespaces, GitHub Actions
+
+### Development Team
+- **Jesun Ahmad Ushno** - Dynamic Feature Extraction, System Architecture
+- **Aramide** - Static Feature Extraction
+- **Contributors** - Integration, Testing, Documentation
+
+For a complete list of dependencies and attributions, see [CREDITS.md](CREDITS.md).
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+**Third-Party Dependencies**: All third-party libraries are used in accordance with their respective open-source licenses (BSD, Apache 2.0, MIT). See [CREDITS.md](CREDITS.md) for complete license information.
+
+---
+
 **Project Status:** ✅ Production Ready  
 **Version:** 3.0  
 **Last Updated:** March 1, 2026  
-**Maintainers:** Development Team  
+**Maintainers:** Jesun Ahmad Ushno & Team  
 **Documentation:** See [COMPREHENSIVE_WORKLOG.md](COMPREHENSIVE_WORKLOG.md)
 

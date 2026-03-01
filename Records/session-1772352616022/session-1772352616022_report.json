@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-01T03:10:16.668482",
+    "session_id": "session-1772352616022",
+    "pipeline_version": "3.0-production"
+  },
+  "validation": {
+    "dynamic": {
+      "is_valid": false,
+      "errors": [
+        "Missing required field: sessionStartTime",
+        "Missing required field: deviceInfo"
+      ],
+      "warnings": []
+    },
+    "static": {
+      "is_valid": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "features": {
+    "dynamic": {},
+    "static": {}
+  },
+  "analysis": {
+    "combined": {},
+    "assessment": {}
+  },
+  "summary": {
+    "total_errors": 1,
+    "is_complete": false,
+    "metrics_extracted": 0
+  }
+}

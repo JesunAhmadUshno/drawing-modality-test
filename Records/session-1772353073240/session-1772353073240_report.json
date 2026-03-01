@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-01T03:17:54.244856",
+    "session_id": "session-1772353073240",
+    "pipeline_version": "3.0-production"
+  },
+  "validation": {
+    "dynamic": {
+      "is_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    "static": {
+      "is_valid": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "features": {
+    "dynamic": {
+      "speed": {
+        "average": 0.6449419968090647,
+        "maximum": 5.921946001479956,
+        "variance": 0.4574846807727966
+      },
+      "acceleration": {
+        "average": 0.045614543839088355,
+        "maximum": 0.7161576669133259,
+        "variance": 0.006048181094500803
+      },
+      "timing": {
+        "total_drawing_time_ms": 17185.0,
+        "total_pause_time_ms": 14487.0,
+        "strokes": 14,
+        "points": 1582
+      },
+      "pauses": {
+        "count": 13,
+        "average_duration_ms": 1114.3846153846155,
+        "maximum_duration_ms": 3309.0
+      },
+      "rhythm": {
+        "avg_inter_stroke_interval_ms": 1114.3846153846155,
+        "stroke_frequency_per_sec": 0.33440821688761496
+      },
+      "movement": {
+        "direction_changes": 189,
+        "average_curvature": 0.1964257398027536,
+        "maximum_curvature": 6.283185307179586
+      }
+    },
+    "static": {
+      "bounding_box": {
+        "area": null,
+        "width": null,
+        "height": null,
+        "center": null
+      },
+      "strokes": {
+        "count": null,
+        "average_length": null,
+        "total_length": 7781.781075570435
+      },
+      "shape": {
+        "compactness": null,
+        "solidity": null,
+        "symmetry_x": null,
+        "symmetry_y": null,
+        "hu_moments": null
+      },
+      "density": {
+        "stroke_density": null,
+        "point_density": null
+      }
+    }
+  },
+  "analysis": {
+    "combined": {
+      "feature_sets": {
+        "dynamic_count": 18,
+        "static_count": 14
+      },
+      "total_metrics_extracted": 32,
+      "analysis": {
+        "drawing_efficiency": 73.97,
+        "shape_quality": 0,
+        "overall_assessment": {
+          "score": 29.59,
+          "max_score": 100,
+          "efficiency_component": 73.97,
+          "quality_component": 0,
+          "grade": "F"
+        }
+      }
+    },
+    "assessment": {
+      "drawing_efficiency": 73.97,
+      "shape_quality": 0,
+      "overall_assessment": {
+        "score": 29.59,
+        "max_score": 100,
+        "efficiency_component": 73.97,
+        "quality_component": 0,
+        "grade": "F"
+      }
+    }
+  },
+  "summary": {
+    "total_errors": 0,
+    "is_complete": true,
+    "metrics_extracted": 32
+  }
+}

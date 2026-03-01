@@ -1,0 +1,124 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-01T04:00:33.983801",
+    "session_id": "session-1772355627542",
+    "pipeline_version": "3.0-production"
+  },
+  "validation": {
+    "dynamic": {
+      "is_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    "static": {
+      "is_valid": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "features": {
+    "dynamic": {
+      "speed": {
+        "average": 0.4051284512950891,
+        "maximum": 6.835365551469959,
+        "variance": 0.16401464126190635
+      },
+      "acceleration": {
+        "average": 0.0320828309666348,
+        "maximum": 0.5565075346517195,
+        "variance": 0.002861409749316298
+      },
+      "timing": {
+        "total_drawing_time_ms": 61742.0,
+        "total_pause_time_ms": 43581.0,
+        "strokes": 71,
+        "points": 5146
+      },
+      "pauses": {
+        "count": 70,
+        "average_duration_ms": 622.5857142857143,
+        "maximum_duration_ms": 4752.0
+      },
+      "rhythm": {
+        "avg_inter_stroke_interval_ms": 622.5857142857143,
+        "stroke_frequency_per_sec": 0.6441779019760837
+      },
+      "movement": {
+        "direction_changes": 778,
+        "average_curvature": 0.22752905011684785,
+        "maximum_curvature": 6.283185307179586
+      }
+    },
+    "static": {
+      "bounding_box": {
+        "area": 382053,
+        "width": 791.0,
+        "height": 483.0,
+        "center": {
+          "x": 432.5,
+          "y": 241.5
+        }
+      },
+      "strokes": {
+        "count": 71,
+        "average_length": 219.10954300625653,
+        "total_length": 15556.777553444213
+      },
+      "shape": {
+        "compactness": 0.1726043245308897,
+        "solidity": 0.23158397482721807,
+        "symmetry_x": 0.12114884532699503,
+        "symmetry_y": 0.10651898673728609,
+        "hu_moments": [
+          0.0026195777713244554,
+          6.050774078195734e-07,
+          1.7648936619712478e-09,
+          4.81642211071723e-10,
+          3.6539980318954066e-19,
+          3.477650135565354e-13,
+          -2.5234161306114404e-19
+        ]
+      },
+      "density": {
+        "stroke_density": 0.00018583809052670703,
+        "point_density": 0.013469335406344147
+      }
+    }
+  },
+  "analysis": {
+    "combined": {
+      "feature_sets": {
+        "dynamic_count": 18,
+        "static_count": 15
+      },
+      "total_metrics_extracted": 33,
+      "analysis": {
+        "drawing_efficiency": 59.99,
+        "shape_quality": 14.32,
+        "overall_assessment": {
+          "score": 32.59,
+          "max_score": 100,
+          "efficiency_component": 59.99,
+          "quality_component": 14.32,
+          "grade": "F"
+        }
+      }
+    },
+    "assessment": {
+      "drawing_efficiency": 59.99,
+      "shape_quality": 14.32,
+      "overall_assessment": {
+        "score": 32.59,
+        "max_score": 100,
+        "efficiency_component": 59.99,
+        "quality_component": 14.32,
+        "grade": "F"
+      }
+    }
+  },
+  "summary": {
+    "total_errors": 0,
+    "is_complete": true,
+    "metrics_extracted": 33
+  }
+}

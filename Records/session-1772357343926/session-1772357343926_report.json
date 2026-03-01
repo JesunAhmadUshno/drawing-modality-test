@@ -1,0 +1,124 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-01T04:29:04.841713",
+    "session_id": "session-1772357343926",
+    "pipeline_version": "3.0-production"
+  },
+  "validation": {
+    "dynamic": {
+      "is_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    "static": {
+      "is_valid": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "features": {
+    "dynamic": {
+      "speed": {
+        "average": 0.6204391282389866,
+        "maximum": 6.436117704883209,
+        "variance": 0.31484883121070895
+      },
+      "acceleration": {
+        "average": 0.05281666675384394,
+        "maximum": 2.4583333333333335,
+        "variance": 0.015915934816324938
+      },
+      "timing": {
+        "total_drawing_time_ms": 7589.0,
+        "total_pause_time_ms": 1983.0,
+        "strokes": 4,
+        "points": 653
+      },
+      "pauses": {
+        "count": 3,
+        "average_duration_ms": 661.0,
+        "maximum_duration_ms": 1221.0
+      },
+      "rhythm": {
+        "avg_inter_stroke_interval_ms": 661.0,
+        "stroke_frequency_per_sec": 0.240442414041837
+      },
+      "movement": {
+        "direction_changes": 88,
+        "average_curvature": 0.18647575389826787,
+        "maximum_curvature": 3.141592653589793
+      }
+    },
+    "static": {
+      "bounding_box": {
+        "area": 216790.5,
+        "width": 639.5,
+        "height": 339.0,
+        "center": {
+          "x": 419.75,
+          "y": 210.5
+        }
+      },
+      "strokes": {
+        "count": 4,
+        "average_length": 776.3825780313779,
+        "total_length": 3105.5303121255115
+      },
+      "shape": {
+        "compactness": 0.07005842045661595,
+        "solidity": 0.08083388551371404,
+        "symmetry_x": 0.06541191678611322,
+        "symmetry_y": 0.0017360904887467948,
+        "hu_moments": [
+          0.012866902180481534,
+          6.746279189533168e-05,
+          2.1492752416207681e-07,
+          4.5250254426558956e-08,
+          2.8005295578061347e-15,
+          1.5260239254427058e-10,
+          3.474317015731649e-15
+        ]
+      },
+      "density": {
+        "stroke_density": 1.8450993009380023e-05,
+        "point_density": 0.003012124608781289
+      }
+    }
+  },
+  "analysis": {
+    "combined": {
+      "feature_sets": {
+        "dynamic_count": 18,
+        "static_count": 15
+      },
+      "total_metrics_extracted": 33,
+      "analysis": {
+        "drawing_efficiency": 93.98,
+        "shape_quality": 5.18,
+        "overall_assessment": {
+          "score": 40.7,
+          "max_score": 100,
+          "efficiency_component": 93.98,
+          "quality_component": 5.18,
+          "grade": "F"
+        }
+      }
+    },
+    "assessment": {
+      "drawing_efficiency": 93.98,
+      "shape_quality": 5.18,
+      "overall_assessment": {
+        "score": 40.7,
+        "max_score": 100,
+        "efficiency_component": 93.98,
+        "quality_component": 5.18,
+        "grade": "F"
+      }
+    }
+  },
+  "summary": {
+    "total_errors": 0,
+    "is_complete": true,
+    "metrics_extracted": 33
+  }
+}

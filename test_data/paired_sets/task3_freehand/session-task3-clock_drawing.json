@@ -1,0 +1,1660 @@
+{
+  "sessionId": "s-1772344997273-test3",
+  "taskId": 3,
+  "taskTitle": "Clock Drawing",
+  "referenceImage": "ReferanceImages/clock drawing.jpg",
+  "sessionStartTime": "2026-03-01T01:03:17.273705",
+  "sessionEndTime": "2026-03-01T01:03:17.273709",
+  "deviceInfo": {
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Test Generator",
+    "deviceType": "desktop",
+    "screenWidth": 1920,
+    "screenHeight": 1080,
+    "screenDPI": 96,
+    "os": "Win32",
+    "language": "en-US",
+    "timestamp": "2026-03-01T01:03:17.273710"
+  },
+  "totalDuration": 15432,
+  "activeDuration": 12100,
+  "pauseDuration": 3332,
+  "idleDuration": 0,
+  "strokeCount": 8,
+  "status": "completed",
+  "strokes": [
+    {
+      "strokeId": "str-1",
+      "startTime": 1772344999273,
+      "endTime": 1772345000773,
+      "duration": 1500,
+      "inputType": "mouse",
+      "brushState": {
+        "tool": "pen",
+        "color": "#000000",
+        "size": 3,
+        "opacity": 1.0
+      },
+      "points": [
+        {
+          "x": 150,
+          "y": 100,
+          "timestamp": 1772344999273,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 155,
+          "y": 110,
+          "timestamp": 1772344999348,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 160,
+          "y": 120,
+          "timestamp": 1772344999423,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 165,
+          "y": 130,
+          "timestamp": 1772344999498,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 170,
+          "y": 140,
+          "timestamp": 1772344999573,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 175,
+          "y": 150,
+          "timestamp": 1772344999648,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 180,
+          "y": 160,
+          "timestamp": 1772344999723,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 185,
+          "y": 170,
+          "timestamp": 1772344999798,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 190,
+          "y": 180,
+          "timestamp": 1772344999873,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 195,
+          "y": 190,
+          "timestamp": 1772344999948,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 200,
+          "y": 200,
+          "timestamp": 1772345000023,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 205,
+          "y": 210,
+          "timestamp": 1772345000098,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 210,
+          "y": 220,
+          "timestamp": 1772345000173,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 215,
+          "y": 230,
+          "timestamp": 1772345000248,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 220,
+          "y": 240,
+          "timestamp": 1772345000323,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 225,
+          "y": 250,
+          "timestamp": 1772345000398,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 230,
+          "y": 260,
+          "timestamp": 1772345000473,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 235,
+          "y": 270,
+          "timestamp": 1772345000548,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 240,
+          "y": 280,
+          "timestamp": 1772345000623,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 245,
+          "y": 290,
+          "timestamp": 1772345000698,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        }
+      ],
+      "metrics": {
+        "totalLength": 100,
+        "averageSpeed": 150.5,
+        "maxSpeed": 200.3,
+        "averagePressure": 0.5,
+        "pointCount": 20
+      }
+    },
+    {
+      "strokeId": "str-2",
+      "startTime": 1772345001273,
+      "endTime": 1772345002773,
+      "duration": 1500,
+      "inputType": "mouse",
+      "brushState": {
+        "tool": "pen",
+        "color": "#000000",
+        "size": 3,
+        "opacity": 1.0
+      },
+      "points": [
+        {
+          "x": 200,
+          "y": 100,
+          "timestamp": 1772345001273,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 205,
+          "y": 110,
+          "timestamp": 1772345001348,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 210,
+          "y": 120,
+          "timestamp": 1772345001423,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 215,
+          "y": 130,
+          "timestamp": 1772345001498,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 220,
+          "y": 140,
+          "timestamp": 1772345001573,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 225,
+          "y": 150,
+          "timestamp": 1772345001648,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 230,
+          "y": 160,
+          "timestamp": 1772345001723,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 235,
+          "y": 170,
+          "timestamp": 1772345001798,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 240,
+          "y": 180,
+          "timestamp": 1772345001873,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 245,
+          "y": 190,
+          "timestamp": 1772345001948,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 250,
+          "y": 200,
+          "timestamp": 1772345002023,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 255,
+          "y": 210,
+          "timestamp": 1772345002098,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 260,
+          "y": 220,
+          "timestamp": 1772345002173,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 265,
+          "y": 230,
+          "timestamp": 1772345002248,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 270,
+          "y": 240,
+          "timestamp": 1772345002323,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 275,
+          "y": 250,
+          "timestamp": 1772345002398,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 280,
+          "y": 260,
+          "timestamp": 1772345002473,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 285,
+          "y": 270,
+          "timestamp": 1772345002548,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 290,
+          "y": 280,
+          "timestamp": 1772345002623,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 295,
+          "y": 290,
+          "timestamp": 1772345002698,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        }
+      ],
+      "metrics": {
+        "totalLength": 100,
+        "averageSpeed": 150.5,
+        "maxSpeed": 200.3,
+        "averagePressure": 0.5,
+        "pointCount": 20
+      }
+    },
+    {
+      "strokeId": "str-3",
+      "startTime": 1772345003273,
+      "endTime": 1772345004773,
+      "duration": 1500,
+      "inputType": "mouse",
+      "brushState": {
+        "tool": "pen",
+        "color": "#000000",
+        "size": 3,
+        "opacity": 1.0
+      },
+      "points": [
+        {
+          "x": 250,
+          "y": 100,
+          "timestamp": 1772345003273,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 255,
+          "y": 110,
+          "timestamp": 1772345003348,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 260,
+          "y": 120,
+          "timestamp": 1772345003423,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 265,
+          "y": 130,
+          "timestamp": 1772345003498,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 270,
+          "y": 140,
+          "timestamp": 1772345003573,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 275,
+          "y": 150,
+          "timestamp": 1772345003648,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 280,
+          "y": 160,
+          "timestamp": 1772345003723,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 285,
+          "y": 170,
+          "timestamp": 1772345003798,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 290,
+          "y": 180,
+          "timestamp": 1772345003873,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 295,
+          "y": 190,
+          "timestamp": 1772345003948,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 300,
+          "y": 200,
+          "timestamp": 1772345004023,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 305,
+          "y": 210,
+          "timestamp": 1772345004098,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 310,
+          "y": 220,
+          "timestamp": 1772345004173,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 315,
+          "y": 230,
+          "timestamp": 1772345004248,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 320,
+          "y": 240,
+          "timestamp": 1772345004323,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 325,
+          "y": 250,
+          "timestamp": 1772345004398,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 330,
+          "y": 260,
+          "timestamp": 1772345004473,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 335,
+          "y": 270,
+          "timestamp": 1772345004548,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 340,
+          "y": 280,
+          "timestamp": 1772345004623,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 345,
+          "y": 290,
+          "timestamp": 1772345004698,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        }
+      ],
+      "metrics": {
+        "totalLength": 100,
+        "averageSpeed": 150.5,
+        "maxSpeed": 200.3,
+        "averagePressure": 0.5,
+        "pointCount": 20
+      }
+    },
+    {
+      "strokeId": "str-4",
+      "startTime": 1772345005273,
+      "endTime": 1772345006773,
+      "duration": 1500,
+      "inputType": "mouse",
+      "brushState": {
+        "tool": "pen",
+        "color": "#000000",
+        "size": 3,
+        "opacity": 1.0
+      },
+      "points": [
+        {
+          "x": 300,
+          "y": 100,
+          "timestamp": 1772345005273,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 305,
+          "y": 110,
+          "timestamp": 1772345005348,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 310,
+          "y": 120,
+          "timestamp": 1772345005423,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 315,
+          "y": 130,
+          "timestamp": 1772345005498,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 320,
+          "y": 140,
+          "timestamp": 1772345005573,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 325,
+          "y": 150,
+          "timestamp": 1772345005648,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 330,
+          "y": 160,
+          "timestamp": 1772345005723,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 335,
+          "y": 170,
+          "timestamp": 1772345005798,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 340,
+          "y": 180,
+          "timestamp": 1772345005873,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 345,
+          "y": 190,
+          "timestamp": 1772345005948,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 350,
+          "y": 200,
+          "timestamp": 1772345006023,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 355,
+          "y": 210,
+          "timestamp": 1772345006098,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 360,
+          "y": 220,
+          "timestamp": 1772345006173,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 365,
+          "y": 230,
+          "timestamp": 1772345006248,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 370,
+          "y": 240,
+          "timestamp": 1772345006323,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 375,
+          "y": 250,
+          "timestamp": 1772345006398,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 380,
+          "y": 260,
+          "timestamp": 1772345006473,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 385,
+          "y": 270,
+          "timestamp": 1772345006548,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 390,
+          "y": 280,
+          "timestamp": 1772345006623,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 395,
+          "y": 290,
+          "timestamp": 1772345006698,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        }
+      ],
+      "metrics": {
+        "totalLength": 100,
+        "averageSpeed": 150.5,
+        "maxSpeed": 200.3,
+        "averagePressure": 0.5,
+        "pointCount": 20
+      }
+    },
+    {
+      "strokeId": "str-5",
+      "startTime": 1772345007273,
+      "endTime": 1772345008773,
+      "duration": 1500,
+      "inputType": "mouse",
+      "brushState": {
+        "tool": "pen",
+        "color": "#000000",
+        "size": 3,
+        "opacity": 1.0
+      },
+      "points": [
+        {
+          "x": 350,
+          "y": 100,
+          "timestamp": 1772345007273,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 355,
+          "y": 110,
+          "timestamp": 1772345007348,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 360,
+          "y": 120,
+          "timestamp": 1772345007423,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 365,
+          "y": 130,
+          "timestamp": 1772345007498,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 370,
+          "y": 140,
+          "timestamp": 1772345007573,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 375,
+          "y": 150,
+          "timestamp": 1772345007648,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 380,
+          "y": 160,
+          "timestamp": 1772345007723,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 385,
+          "y": 170,
+          "timestamp": 1772345007798,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 390,
+          "y": 180,
+          "timestamp": 1772345007873,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 395,
+          "y": 190,
+          "timestamp": 1772345007948,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 400,
+          "y": 200,
+          "timestamp": 1772345008023,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 405,
+          "y": 210,
+          "timestamp": 1772345008098,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "timestamp": 1772345008173,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 415,
+          "y": 230,
+          "timestamp": 1772345008248,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 420,
+          "y": 240,
+          "timestamp": 1772345008323,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 425,
+          "y": 250,
+          "timestamp": 1772345008398,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 430,
+          "y": 260,
+          "timestamp": 1772345008473,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 435,
+          "y": 270,
+          "timestamp": 1772345008548,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 440,
+          "y": 280,
+          "timestamp": 1772345008623,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 445,
+          "y": 290,
+          "timestamp": 1772345008698,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        }
+      ],
+      "metrics": {
+        "totalLength": 100,
+        "averageSpeed": 150.5,
+        "maxSpeed": 200.3,
+        "averagePressure": 0.5,
+        "pointCount": 20
+      }
+    },
+    {
+      "strokeId": "str-6",
+      "startTime": 1772345009273,
+      "endTime": 1772345010773,
+      "duration": 1500,
+      "inputType": "mouse",
+      "brushState": {
+        "tool": "pen",
+        "color": "#000000",
+        "size": 3,
+        "opacity": 1.0
+      },
+      "points": [
+        {
+          "x": 400,
+          "y": 100,
+          "timestamp": 1772345009273,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 405,
+          "y": 110,
+          "timestamp": 1772345009348,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 410,
+          "y": 120,
+          "timestamp": 1772345009423,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 415,
+          "y": 130,
+          "timestamp": 1772345009498,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 420,
+          "y": 140,
+          "timestamp": 1772345009573,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 425,
+          "y": 150,
+          "timestamp": 1772345009648,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 430,
+          "y": 160,
+          "timestamp": 1772345009723,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 435,
+          "y": 170,
+          "timestamp": 1772345009798,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 440,
+          "y": 180,
+          "timestamp": 1772345009873,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 445,
+          "y": 190,
+          "timestamp": 1772345009948,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 450,
+          "y": 200,
+          "timestamp": 1772345010023,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 455,
+          "y": 210,
+          "timestamp": 1772345010098,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 460,
+          "y": 220,
+          "timestamp": 1772345010173,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 465,
+          "y": 230,
+          "timestamp": 1772345010248,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 470,
+          "y": 240,
+          "timestamp": 1772345010323,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 475,
+          "y": 250,
+          "timestamp": 1772345010398,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 480,
+          "y": 260,
+          "timestamp": 1772345010473,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 485,
+          "y": 270,
+          "timestamp": 1772345010548,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 490,
+          "y": 280,
+          "timestamp": 1772345010623,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 495,
+          "y": 290,
+          "timestamp": 1772345010698,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        }
+      ],
+      "metrics": {
+        "totalLength": 100,
+        "averageSpeed": 150.5,
+        "maxSpeed": 200.3,
+        "averagePressure": 0.5,
+        "pointCount": 20
+      }
+    },
+    {
+      "strokeId": "str-7",
+      "startTime": 1772345011273,
+      "endTime": 1772345012773,
+      "duration": 1500,
+      "inputType": "mouse",
+      "brushState": {
+        "tool": "pen",
+        "color": "#000000",
+        "size": 3,
+        "opacity": 1.0
+      },
+      "points": [
+        {
+          "x": 450,
+          "y": 100,
+          "timestamp": 1772345011273,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 455,
+          "y": 110,
+          "timestamp": 1772345011348,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 460,
+          "y": 120,
+          "timestamp": 1772345011423,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 465,
+          "y": 130,
+          "timestamp": 1772345011498,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 470,
+          "y": 140,
+          "timestamp": 1772345011573,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 475,
+          "y": 150,
+          "timestamp": 1772345011648,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 480,
+          "y": 160,
+          "timestamp": 1772345011723,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 485,
+          "y": 170,
+          "timestamp": 1772345011798,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 490,
+          "y": 180,
+          "timestamp": 1772345011873,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 495,
+          "y": 190,
+          "timestamp": 1772345011948,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 500,
+          "y": 200,
+          "timestamp": 1772345012023,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 505,
+          "y": 210,
+          "timestamp": 1772345012098,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 510,
+          "y": 220,
+          "timestamp": 1772345012173,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 515,
+          "y": 230,
+          "timestamp": 1772345012248,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 520,
+          "y": 240,
+          "timestamp": 1772345012323,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 525,
+          "y": 250,
+          "timestamp": 1772345012398,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 530,
+          "y": 260,
+          "timestamp": 1772345012473,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 535,
+          "y": 270,
+          "timestamp": 1772345012548,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 540,
+          "y": 280,
+          "timestamp": 1772345012623,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 545,
+          "y": 290,
+          "timestamp": 1772345012698,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        }
+      ],
+      "metrics": {
+        "totalLength": 100,
+        "averageSpeed": 150.5,
+        "maxSpeed": 200.3,
+        "averagePressure": 0.5,
+        "pointCount": 20
+      }
+    },
+    {
+      "strokeId": "str-8",
+      "startTime": 1772345013273,
+      "endTime": 1772345014773,
+      "duration": 1500,
+      "inputType": "mouse",
+      "brushState": {
+        "tool": "pen",
+        "color": "#000000",
+        "size": 3,
+        "opacity": 1.0
+      },
+      "points": [
+        {
+          "x": 500,
+          "y": 100,
+          "timestamp": 1772345013273,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 505,
+          "y": 110,
+          "timestamp": 1772345013348,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 510,
+          "y": 120,
+          "timestamp": 1772345013423,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 515,
+          "y": 130,
+          "timestamp": 1772345013498,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 520,
+          "y": 140,
+          "timestamp": 1772345013573,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 525,
+          "y": 150,
+          "timestamp": 1772345013648,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 530,
+          "y": 160,
+          "timestamp": 1772345013723,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 535,
+          "y": 170,
+          "timestamp": 1772345013798,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 540,
+          "y": 180,
+          "timestamp": 1772345013873,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 545,
+          "y": 190,
+          "timestamp": 1772345013948,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 550,
+          "y": 200,
+          "timestamp": 1772345014023,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 555,
+          "y": 210,
+          "timestamp": 1772345014098,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 560,
+          "y": 220,
+          "timestamp": 1772345014173,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 565,
+          "y": 230,
+          "timestamp": 1772345014248,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 570,
+          "y": 240,
+          "timestamp": 1772345014323,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 575,
+          "y": 250,
+          "timestamp": 1772345014398,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 580,
+          "y": 260,
+          "timestamp": 1772345014473,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 585,
+          "y": 270,
+          "timestamp": 1772345014548,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 590,
+          "y": 280,
+          "timestamp": 1772345014623,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        },
+        {
+          "x": 595,
+          "y": 290,
+          "timestamp": 1772345014698,
+          "pressure": 0.5,
+          "tiltX": 0,
+          "tiltY": 0,
+          "twist": 0
+        }
+      ],
+      "metrics": {
+        "totalLength": 100,
+        "averageSpeed": 150.5,
+        "maxSpeed": 200.3,
+        "averagePressure": 0.5,
+        "pointCount": 20
+      }
+    }
+  ],
+  "events": [
+    {
+      "type": "session_start",
+      "timestamp": 1772344997273,
+      "data": {
+        "status": "started"
+      }
+    },
+    {
+      "type": "session_complete",
+      "timestamp": 1772345012705,
+      "data": {
+        "status": "completed",
+        "totalStrokes": 8
+      }
+    }
+  ],
+  "hoverPaths": []
+}

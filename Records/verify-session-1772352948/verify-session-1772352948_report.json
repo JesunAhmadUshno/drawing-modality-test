@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "generated_at": "2026-03-01T03:15:50.332429",
+    "session_id": "verify-session-1772352948",
+    "pipeline_version": "3.0-production"
+  },
+  "validation": {
+    "dynamic": {
+      "is_valid": true,
+      "errors": [],
+      "warnings": []
+    },
+    "static": {
+      "is_valid": true,
+      "errors": [],
+      "warnings": []
+    }
+  },
+  "features": {
+    "dynamic": {
+      "speed": {
+        "average": 0.5939641729601164,
+        "maximum": 0.7810249675906654,
+        "variance": 0.030539894573138254
+      },
+      "acceleration": {
+        "average": 0.002805911919458235,
+        "maximum": 0.004204698400442665,
+        "variance": 7.873141699757797e-06
+      },
+      "timing": {
+        "total_drawing_time_ms": 300.0,
+        "total_pause_time_ms": 0,
+        "strokes": 1,
+        "points": 4
+      },
+      "pauses": {
+        "count": 0,
+        "average_duration_ms": 0,
+        "maximum_duration_ms": 0
+      },
+      "rhythm": {
+        "avg_inter_stroke_interval_ms": 0,
+        "stroke_frequency_per_sec": 0.5
+      },
+      "movement": {
+        "direction_changes": 0,
+        "average_curvature": 0.003939696866662565,
+        "maximum_curvature": 0.005046609489385681
+      }
+    },
+    "static": {
+      "bounding_box": {
+        "area": null,
+        "width": null,
+        "height": null,
+        "center": null
+      },
+      "strokes": {
+        "count": null,
+        "average_length": null,
+        "total_length": 178.1892518880349
+      },
+      "shape": {
+        "compactness": null,
+        "solidity": null,
+        "symmetry_x": null,
+        "symmetry_y": null,
+        "hu_moments": null
+      },
+      "density": {
+        "stroke_density": null,
+        "point_density": null
+      }
+    }
+  },
+  "analysis": {
+    "combined": {
+      "feature_sets": {
+        "dynamic_count": 18,
+        "static_count": 14
+      },
+      "total_metrics_extracted": 32,
+      "analysis": {
+        "drawing_efficiency": 100.0,
+        "shape_quality": 0,
+        "overall_assessment": {
+          "score": 40.0,
+          "max_score": 100,
+          "efficiency_component": 100.0,
+          "quality_component": 0,
+          "grade": "F"
+        }
+      }
+    },
+    "assessment": {
+      "drawing_efficiency": 100.0,
+      "shape_quality": 0,
+      "overall_assessment": {
+        "score": 40.0,
+        "max_score": 100,
+        "efficiency_component": 100.0,
+        "quality_component": 0,
+        "grade": "F"
+      }
+    }
+  },
+  "summary": {
+    "total_errors": 0,
+    "is_complete": true,
+    "metrics_extracted": 32
+  }
+}

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing Modal - Comprehensive Technical Documentation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        nav {
+            background: #333;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav li {
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            text-align: center;
+            transition: background 0.3s;
+            font-size: 0.9em;
+        }
+        
+        nav a:hover {
+            background: #667eea;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        
+        section {
+            margin-bottom: 60px;
+            scroll-margin-top: 80px;
+        }
+        
+        h2 {
+            color: #667eea;
+            font-size: 2em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        h3 {
+            color: #764ba2;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        h4 {
+            color: #555;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        
+        .code-block {
+            background: #f8f8f8;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto;
+            border-radius: 4px;
+        }
+        
+        .code-block pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #333;
+        }
+        
+        .formula {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border-radius: 4px;
+        }
+        
+        .diagram {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        
+        .note {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .warning {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .method-box {
+            background: #f0f0f0;
+            border-left: 4px solid #764ba2;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .param-list {
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        
+        .param-list ul {
+            margin-left: 20px;
+        }
+        
+        .param-list li {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎨 Drawing Modal v2.0</h1>
+            <p>Comprehensive Technical Documentation</p>
+            <p style="font-size: 0.9em; margin-top: 10px;">Complete Code Analysis | Mathematical Formulas | Data Flows | Schemas | ERD Diagrams</p>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#architecture">Architecture</a></li>
+                <li><a href="#calculations">Calculations</a></li>
+                <li><a href="#dataflow">Data Flow</a></li>
+                <li><a href="#schemas">Schemas</a></li>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#methods">Methods</a></li>
+                <li><a href="#diagrams">Diagrams</a></li>
+            </ul>
+        </nav>
+        
+        <main>
+            <!-- OVERVIEW -->
+            <section id="overview">
+                <h2>📋 System Overview</h2>
+                
+                <h3>Project Description</h3>
+                <p>Drawing Modal is a sophisticated, serverless drawing canvas application that captures comprehensive interaction data with 13+ measurements per point. It provides real-time UI updates, session tracking, hover path detection, and complete JSON export of all drawing behavior metrics.</p>
+                
+                <h3>Technology Stack</h3>
+                <ul>
+                    <li><strong>Frontend:</strong> Vanilla JavaScript ES6+, HTML5, CSS3</li>
+                    <li><strong>Canvas:</strong> 2D Context for rendering</li>
+                    <li><strong>Input:</strong> Pointer Events API (unified input)</li>
+                    <li><strong>Data Format:</strong> JSON export, PNG image export</li>
+                    <li><strong>Architecture:</strong> 100% client-side, serverless</li>
+                </ul>
+                
+                <h3>Core Metrics</h3>
+                <table>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>Total Code Lines</td>
+                        <td>2,400+ across HTML/JS/CSS</td>
+                    </tr>
+                    <tr>
+                        <td>Main Classes</td>
+                        <td>DrawingApp, DrawingCaptureSystem, DrawingSession</td>
+                    </tr>
+                    <tr>
+                        <td>Methods</td>
+                        <td>60+ across all classes</td>
+                    </tr>
+                    <tr>
+                        <td>Measurements per Point</td>
+                        <td>13 (position, pressure, tilt, twist, geometry, velocity, orientation)</td>
+                    </tr>
+                    <tr>
+                        <td>Event Types Tracked</td>
+                        <td>7 (session_start, draw_start, draw_end, hover_start, hover_end, idle_detect, session_complete)</td>
+                    </tr>
+                    <tr>
+                        <td>UI Panels</td>
+                        <td>6 (Brush Settings, Session Data, Stroke Metrics, Hover Metrics, Sensors, Actions)</td>
+                    </tr>
+                    <tr>
+                        <td>Metrics per Session</td>
+                        <td>35+</td>
+                    </tr>
+                </table>
+            </section>
+            
+            <!-- ARCHITECTURE -->
+            <section id="architecture">
+                <h2>🏗️ System Architecture</h2>
+                
+                <h3>Class Relationships</h3>
+                <div class="diagram">Drawing Modal Architecture:
+
+┌────────────────────────────────────────────────────────────┐
+│                        index.html                           │
+│              (UI Layout & Event Triggers)                   │
+└────────────────────────────────────────────────────────────┘
+                              │
+              ┌───────────────┼───────────────┐
+              ↓               ↓               ↓
+    ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
+    │  DrawingApp      │  │   DrawingSession │  │ DrawingCaptureSystem
+    │  (Controller)    │  │   (Model)        │  │ (Data Engine)
+    │                  │  │                  │  │
+    │ Responsibilities:│  │ Responsibilities:│  │ Responsibilities:
+    │ • Canvas mgmt    │  │ • Stroke storage │  │ • Duration track
+    │ • Tool control   │  │ • Point collection  │ • Hover detection
+    │ • Drawing ops    │  │ • Timing         │  │ • Event logging
+    │ • UI updates     │  │ • Export format  │  │ • Session mgmt
+    └──────────────────┘  └──────────────────┘  └──────────────────┘
+              │                     │                     │
+              └─────────────────────┼─────────────────────┘
+                                    ↕
+                            (Data Exchange)
+                                    │
+                              ┌─────┴─────┐
+                              ↓           ↓
+                        Pointer Events  Timer Events
+                     (mousedown, move,  (100ms metric
+                      mousup)           updates)
+                
+                <h3>Altitude & Azimuth Calculations</h3>
+                <p><strong>Altitude:</strong> Angle of stylus from surface (0-90°)</p>
+                <p><strong>Azimuth:</strong> Compass direction of stylus tilt (0-360°)</p>
+                
+                <div class="formula">Altitude Calculation:
+  altitude = 90° - arctan(√(tiltX² + tiltY²)) * (180/π)
+  
+  If tiltX = 0 AND tiltY = 0: altitude = 90° (perpendicular)
+  Else: altitude decreases as tilt increases
+  
+Azimuth Calculation:
+  azimuth = atan2(tiltY, tiltX) * (180/π)
+  
+  If azimuth < 0: azimuth += 360° (normalize to 0-360 range)
+  Result represents direction: 0°=East, 90°=South, 180°=West, 270°=North
+

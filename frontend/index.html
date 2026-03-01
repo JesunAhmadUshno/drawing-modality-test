@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PulseKey Assessment System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .header {
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 42px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .btn {
+            width: 100%;
+            max-width: 350px;
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-start-task {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-start-task:hover {
+            background: linear-gradient(135deg, #7c8ff0 0%, #845bb3 100%);
+        }
+
+        .btn-view-reports {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .btn-view-reports:hover {
+            background: linear-gradient(135deg, #f5a3fc 0%, #f76d7d 100%);
+        }
+
+        .icon {
+            font-size: 28px;
+        }
+
+        .info-box {
+            margin-top: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .info-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 12px;
+        }
+
+        .info-text {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .feature-list {
+            text-align: left;
+            display: inline-block;
+            margin-top: 15px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .feature-icon {
+            font-size: 18px;
+        }
+
+        .feature-text {
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .title {
+                font-size: 32px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 18px 30px;
+                font-size: 16px;
+            }
+
+            .buttons-container {
+                gap: 15px;
+            }
+
+            .header {
+                margin-bottom: 40px;
+            }
+
+            .info-box {
+                margin-top: 40px;
+            }
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: rgba(76, 175, 80, 0.3);
+            color: #4CAF50;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            border: 1px solid rgba(76, 175, 80, 0.5);
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: white;
+            margin-top: 20px;
+        }
+
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 10px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .session-count {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .count-number {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🎨</div>
+            <h1 class="title">PulseKey Assessment</h1>
+            <p class="subtitle">Comprehensive Drawing Analysis System</p>
+            <div class="status-badge">✓ System Ready</div>
+        </div>
+
+        <div class="buttons-container">
+            <button class="btn btn-start-task" onclick="window.location.href='task.html'">
+                <span class="icon">▶️</span>
+                <span>Start New Task</span>
+            </button>
+
+            <button class="btn btn-view-reports" onclick="window.location.href='reports.html'">
+                <span class="icon">📊</span>
+                <span>View Reports</span>
+            </button>
+
+            <button class="btn btn-analytics" onclick="window.location.href='analytics-dashboard.html'" style="background: linear-gradient(135deg, #7c3aed, #ec4899); border: none;">
+                <span class="icon">📈</span>
+                <span>Analytics Dashboard</span>
+            </button>
+        </div>
+
+        <div class="session-count">
+            <p>Total Sessions Completed</p>
+            <div class="count-number" id="sessionCount">-</div>
+            <div class="loading" id="loadingCount">
+                <span class="spinner"></span> Loading...
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-title">About This System</div>
+            <div class="info-text">
+                PulseKey Assessment provides comprehensive analysis of drawing modality, combining dynamic temporal metrics with static geometric analysis for detailed performance insights.
+            </div>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <span class="feature-icon">⚡</span>
+                    <span class="feature-text">Real-time Dynamic Analysis (speed, acceleration, timing)</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📐</span>
+                    <span class="feature-text">Static Geometric Analysis (strokes, contours, features)</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📊</span>
+                    <span class="feature-text">Combined Scoring & Performance Grading</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load session count from backend
+        async function loadSessionCount() {
+            try {
+                const response = await fetch('http://localhost:5000/api/records/count');
+                if (response.ok) {
+                    const data = await response.json();
+                    document.getElementById('sessionCount').textContent = data.count || 0;
+                    document.getElementById('loadingCount').style.display = 'none';
+                } else {
+                    document.getElementById('sessionCount').textContent = '0';
+                }
+            } catch (error) {
+                console.error('Error loading session count:', error);
+                document.getElementById('sessionCount').textContent = '0';
+            }
+        }
+
+        // Load on page load
+        document.addEventListener('DOMContentLoaded', loadSessionCount);
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "sessionId": "test-session-1772352922",
+  "timestamp": "2026-03-01T03:15:22.973764",
+  "type": "PulseKey-Assessment",
+  "totalTasks": 1,
+  "tasks": {
+    "task1": {
+      "title": "Test Task",
+      "taskType": "test",
+      "strokes": [
+        {
+          "points": [
+            {
+              "x": 100,
+              "y": 100,
+              "timestamp": 1000
+            },
+            {
+              "x": 200,
+              "y": 200,
+              "timestamp": 1100
+            },
+            {
+              "x": 300,
+              "y": 300,
+              "timestamp": 1200
+            }
+          ],
+          "startTime": 1000,
+          "endTime": 1200
+        }
+      ]
+    }
+  }
+}

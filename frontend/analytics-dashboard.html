@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Drawing Modality Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        button.primary {
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            color: white;
+        }
+
+        button.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(124, 58, 237, 0.4);
+        }
+
+        button.secondary {
+            background: #3a3a3a;
+            color: #e0e0e0;
+            border: 1px solid #555;
+        }
+
+        button.secondary:hover {
+            background: #444;
+        }
+
+        /* KPI Summary Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, #2a2a2a, #333);
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .kpi-card:hover {
+            border-color: #7c3aed;
+            box-shadow: 0 5px 20px rgba(124, 58, 237, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .kpi-label {
+            font-size: 12px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .kpi-value {
+            font-size: 32px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #7c3aed, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .kpi-subtext {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+        }
+
+        /* Charts Section */
+        .charts-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .chart-container {
+            background: linear-gradient(135deg, #2a2a2a, #333);
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+        }
+
+        .chart-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+            margin-bottom: 10px;
+        }
+
+        /* Tables Section */
+        .table-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .table-container {
+            background: linear-gradient(135deg, #2a2a2a, #333);
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+        }
+
+        .table-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #e0e0e0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: rgba(124, 58, 237, 0.2);
+            border-bottom: 2px solid #7c3aed;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #7c3aed;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #444;
+            color: #e0e0e0;
+        }
+
+        tr:hover {
+            background: rgba(124, 58, 237, 0.1);
+        }
+
+        /* Insights Section */
+        .insights-section {
+            background: linear-gradient(135deg, #2a2a2a, #333);
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .insights-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        .insight-card {
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-left: 4px solid #7c3aed;
+            border-radius: 6px;
+            padding: 15px;
+        }
+
+        .insight-icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .insight-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .insight-label {
+            font-size: 13px;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .insight-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #7c3aed;
+            margin-top: 5px;
+        }
+
+        .insight-desc {
+            font-size: 12px;
+            color: #999;
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .status-complete {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid #22c55e;
+        }
+
+        .status-incomplete {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+
+        .status-valid {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            border: 1px solid #3b82f6;
+        }
+
+        .status-invalid {
+            background: rgba(241, 65, 108, 0.2);
+            color: #f14164;
+            border: 1px solid #f14164;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+
+        .spinner {
+            border: 4px solid rgba(124, 58, 237, 0.2);
+            border-top-color: #7c3aed;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Filter Bar */
+        .filter-bar {
+            background: linear-gradient(135deg, #2a2a2a, #333);
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .filter-label {
+            font-size: 13px;
+            color: #999;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        select {
+            background: #1a1a1a;
+            color: #e0e0e0;
+            border: 1px solid #555;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .charts-section,
+            .table-section {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .kpi-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .badge-complete {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
+        .badge-incomplete {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+
+        .badge-dynamic-valid {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .badge-static-valid {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
+        .badge-invalid {
+            background: rgba(241, 65, 108, 0.2);
+            color: #f14164;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Analytics Dashboard</h1>
+            <div class="header-controls">
+                <button class="secondary" onclick="window.location.href='index.html'" title="Home">🏠 Home</button>
+                <button class="secondary" onclick="goBack()">← Back</button>
+                <button class="primary" onclick="refreshData()">🔄 Refresh</button>
+            </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <div class="filter-group">
+                <label class="filter-label">Task Filter:</label>
+                <select id="taskFilter" onchange="applyFilters()">
+                    <option value="">All Tasks</option>
+                    <option value="1">Task 1 - Pentagon</option>
+                    <option value="2">Task 2 - House</option>
+                    <option value="3">Task 3 - Clock</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label class="filter-label">Status:</label>
+                <select id="statusFilter" onchange="applyFilters()">
+                    <option value="">All</option>
+                    <option value="complete">Complete</option>
+                    <option value="incomplete">Incomplete</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- KPI Summary -->
+        <div class="kpi-grid" id="kpiGrid">
+            <div class="kpi-card">
+                <div class="kpi-label">Total Sessions</div>
+                <div class="kpi-value" id="totalSessions">-</div>
+                <div class="kpi-subtext">All recorded sessions</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Average Score</div>
+                <div class="kpi-value" id="avgScore">-</div>
+                <div class="kpi-subtext" id="scoreSubtext">/100</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Completion Rate</div>
+                <div class="kpi-value" id="completionRate">-</div>
+                <div class="kpi-subtext" id="completeCount">0 complete</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Validation Success</div>
+                <div class="kpi-value" id="validationRate">-</div>
+                <div class="kpi-subtext" id="validCount">0 valid</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Avg Draw Time</div>
+                <div class="kpi-value" id="avgDrawTime">-</div>
+                <div class="kpi-subtext">seconds</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Total Task Runs</div>
+                <div class="kpi-value" id="totalTasks">-</div>
+                <div class="kpi-subtext">across all sessions</div>
+            </div>
+        </div>
+
+        <!-- Mental Health Dashboard -->
+        <div class="insights-section" id="mentalHealthSection">
+            <div class="insights-title">🧠 Mental Health & Wellness Index</div>
+            <div class="insights-grid">
+                <div class="insight-card" style="border-left-color: #ef4444;">
+                    <div class="insight-header">
+                        <span class="insight-icon">😰</span>
+                        <div class="insight-label">Stress Level</div>
+                    </div>
+                    <div class="insight-value" id="avgStress">-</div>
+                    <div class="insight-desc">Average across all sessions</div>
+                </div>
+
+                <div class="insight-card" style="border-left-color: #f97316;">
+                    <div class="insight-header">
+                        <span class="insight-icon">😟</span>
+                        <div class="insight-label">Anxiety Level</div>
+                    </div>
+                    <div class="insight-value" id="avgAnxiety">-</div>
+                    <div class="insight-desc">Based on drawing patterns</div>
+                </div>
+
+                <div class="insight-card" style="border-left-color: #eab308;">
+                    <div class="insight-header">
+                        <span class="insight-icon">😔</span>
+                        <div class="insight-label">Burnout Risk</div>
+                    </div>
+                    <div class="insight-value" id="avgBurnout">-</div>
+                    <div class="insight-desc">Declining performance trend</div>
+                </div>
+
+                <div class="insight-card" style="border-left-color: #3b82f6;">
+                    <div class="insight-header">
+                        <span class="insight-icon">🧠</span>
+                        <div class="insight-label">Cognitive Load</div>
+                    </div>
+                    <div class="insight-value" id="avgCognitive">-</div>
+                    <div class="insight-desc">Mental workload indicators</div>
+                </div>
+
+                <div class="insight-card" style="border-left-color: #22c55e;">
+                    <div class="insight-header">
+                        <span class="insight-icon">💪</span>
+                        <div class="insight-label">Overall Wellness</div>
+                    </div>
+                    <div class="insight-value" id="avgWellness">-</div>
+                    <div class="insight-desc">Composite wellness score</div>
+                </div>
+
+                <div class="insight-card" style="border-left-color: #06b6d4;">
+                    <div class="insight-header">
+                        <span class="insight-icon">📊</span>
+                        <div class="insight-label">Critical Sessions</div>
+                    </div>
+                    <div class="insight-value" id="criticalCount">-</div>
+                    <div class="insight-desc">Sessions needing attention</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mental Health Trends Chart -->
+        <div class="charts-section" style="margin-bottom: 30px;">
+            <div class="chart-container">
+                <div class="chart-title">🧠 Mental Health Trends Over Time</div>
+                <div class="chart-wrapper">
+                    <canvas id="mentalHealthTrends"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">⚠️ Wellness Distribution</div>
+                <div class="chart-wrapper">
+                    <canvas id="wellnessDistribution"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-section" id="chartsSection">
+            <div class="chart-container">
+                <div class="chart-title">📈 Score Distribution</div>
+                <div class="chart-wrapper">
+                    <canvas id="scoreDistributionChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">✅ Session Status Overview</div>
+                <div class="chart-wrapper">
+                    <canvas id="statusChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">⏱️ Drawing Time Trends</div>
+                <div class="chart-wrapper">
+                    <canvas id="timingChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">🎯 Task Performance Breakdown</div>
+                <div class="chart-wrapper">
+                    <canvas id="taskPerformanceChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">✔️ Validation Status</div>
+                <div class="chart-wrapper">
+                    <canvas id="validationChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <div class="chart-title">📊 Metrics Quality</div>
+                <div class="chart-wrapper">
+                    <canvas id="qualityChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Insights Section -->
+        <div class="insights-section" id="insightsSection">
+            <div class="insights-title">💡 Key Insights & Trends</div>
+            <div class="insights-grid" id="insightsGrid">
+                <div class="insight-card">
+                    <div class="insight-header">
+                        <span class="insight-icon">🔝</span>
+                        <div class="insight-label">Best Task</div>
+                    </div>
+                    <div class="insight-value" id="bestTask">-</div>
+                    <div class="insight-desc" id="bestTaskDesc">Loading analysis...</div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-header">
+                        <span class="insight-icon">⚠️</span>
+                        <div class="insight-label">Most Issues</div>
+                    </div>
+                    <div class="insight-value" id="problemTask">-</div>
+                    <div class="insight-desc" id="problemTaskDesc">Loading analysis...</div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-header">
+                        <span class="insight-icon">⏰</span>
+                        <div class="insight-label">Avg Session Duration</div>
+                    </div>
+                    <div class="insight-value" id="avgDuration">-</div>
+                    <div class="insight-desc">Total drawing + pause time</div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-header">
+                        <span class="insight-icon">📐</span>
+                        <div class="insight-label">Avg Strokes/Session</div>
+                    </div>
+                    <div class="insight-value" id="avgStrokes">-</div>
+                    <div class="insight-desc">Movement complexity metric</div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-header">
+                        <span class="insight-icon">✨</span>
+                        <div class="insight-label">Quality Trend</div>
+                    </div>
+                    <div class="insight-value" id="qualityTrend">-</div>
+                    <div class="insight-desc" id="trendDesc">Loading analysis...</div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-header">
+                        <span class="insight-icon">🎯</span>
+                        <div class="insight-label">Consistency Score</div>
+                    </div>
+                    <div class="insight-value" id="consistency">-</div>
+                    <div class="insight-desc">Variation in session quality</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tables Section -->
+        <div class="table-section" id="tableSection">
+            <div class="table-container">
+                <div class="table-title">📋 Task Performance Summary</div>
+                <table id="taskSummaryTable">
+                    <thead>
+                        <tr>
+                            <th>Task</th>
+                            <th>Sessions</th>
+                            <th>Avg Score</th>
+                            <th>Complete</th>
+                            <th>Avg Time</th>
+                            <th>Validation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="taskSummaryBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <div class="table-title">📊 Score Brackets Analysis</div>
+                <table id="scoreBracketsTable">
+                    <thead>
+                        <tr>
+                            <th>Score Range</th>
+                            <th>Count</th>
+                            <th>Percentage</th>
+                            <th>Avg Duration</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scoreBracketsBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Top/Bottom Performers -->
+        <div class="table-section" id="performersSection">
+            <div class="table-container">
+                <div class="table-title">🏆 Top 5 Performers</div>
+                <table id="topPerformersTable">
+                    <thead>
+                        <tr>
+                            <th>Session ID</th>
+                            <th>Score</th>
+                            <th>Grade</th>
+                            <th>Tasks</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="topPerformersBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-container">
+                <div class="table-title">📉 Needs Improvement</div>
+                <table id="bottomPerformersTable">
+                    <thead>
+                        <tr>
+                            <th>Session ID</th>
+                            <th>Score</th>
+                            <th>Grade</th>
+                            <th>Issues</th>
+                            <th>Validation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bottomPerformersBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allSessions = [];
+        let filteredSessions = [];
+        let charts = {};
+
+        async function loadSessions() {
+            try {
+                const response = await fetch('http://localhost:5000/api/records');
+                if (!response.ok) throw new Error('Failed to load sessions');
+                const data = await response.json();
+                allSessions = data.sessions || [];
+                filteredSessions = [...allSessions];
+                renderDashboard();
+            } catch (error) {
+                console.error('Error loading sessions:', error);
+                document.querySelector('.container').innerHTML = `
+                    <div class="loading">
+                        <p>❌ Error loading analytics data</p>
+                        <p>${error.message}</p>
+                        <button class="primary" onclick="location.reload()" style="margin-top: 20px;">Retry</button>
+                    </div>
+                `;
+            }
+        }
+
+        function applyFilters() {
+            const taskFilter = document.getElementById('taskFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+
+            filteredSessions = allSessions.filter(session => {
+                if (taskFilter && session.task_count != taskFilter) return false;
+                if (statusFilter === 'complete' && !session.is_complete) return false;
+                if (statusFilter === 'incomplete' && session.is_complete) return false;
+                return true;
+            });
+
+            renderDashboard();
+        }
+
+        function renderDashboard() {
+            updateKPIs();
+            updateCharts();
+            updateTables();
+            updateInsights();
+        }
+
+        function updateKPIs() {
+            const total = filteredSessions.length;
+            const complete = filteredSessions.filter(s => s.is_complete).length;
+            const validBoth = filteredSessions.filter(s => s.dynamic_valid && s.static_valid).length;
+            const avgScore = total > 0 ? (filteredSessions.reduce((sum, s) => sum + (s.score || 0), 0) / total).toFixed(1) : 0;
+            const avgDrawTime = total > 0 ? (filteredSessions.reduce((sum, s) => sum + (s.total_drawing_time_ms || 0), 0) / total / 1000).toFixed(1) : 0;
+            const totalTasks = filteredSessions.reduce((sum, s) => sum + (s.task_count || 0), 0);
+
+            document.getElementById('totalSessions').textContent = total;
+            document.getElementById('avgScore').textContent = avgScore;
+            document.getElementById('scoreSubtext').textContent = total > 0 ? `/100` : 'No data';
+            document.getElementById('completionRate').textContent = total > 0 ? `${((complete/total)*100).toFixed(0)}%` : '-';
+            document.getElementById('completeCount').textContent = `${complete}/${total} complete`;
+            document.getElementById('validationRate').textContent = total > 0 ? `${((validBoth/total)*100).toFixed(0)}%` : '-';
+            document.getElementById('validCount').textContent = `${validBoth}/${total} valid`;
+            document.getElementById('avgDrawTime').textContent = avgDrawTime;
+            document.getElementById('totalTasks').textContent = totalTasks;
+        }
+
+        function updateCharts() {
+            // Destroy existing charts
+            Object.values(charts).forEach(chart => {
+                if (chart) chart.destroy();
+            });
+            charts = {};
+
+            // Score Distribution
+            const scoreRanges = [
+                { label: '0-20', min: 0, max: 20 },
+                { label: '21-40', min: 21, max: 40 },
+                { label: '41-60', min: 41, max: 60 },
+                { label: '61-80', min: 61, max: 80 },
+                { label: '81-100', min: 81, max: 100 }
+            ];
+            const scoreCounts = scoreRanges.map(range => 
+                filteredSessions.filter(s => (s.score || 0) >= range.min && (s.score || 0) <= range.max).length
+            );
+
+            charts.scoreDistribution = new Chart(document.getElementById('scoreDistributionChart'), {
+                type: 'bar',
+                data: {
+                    labels: scoreRanges.map(r => r.label),
+                    datasets: [{
+                        label: 'Sessions',
+                        data: scoreCounts,
+                        backgroundColor: ['#ef4444', '#f97316', '#eab308', '#84cc16', '#22c55e'],
+                        borderColor: 'transparent',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(0,0,0,0.7)' } },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { color: '#999' }, grid: { color: '#333' } },
+                        x: { ticks: { color: '#999' }, grid: { display: false } }
+                    }
+                }
+            });
+
+            // Status Chart
+            const complete = filteredSessions.filter(s => s.is_complete).length;
+            const incomplete = filteredSessions.length - complete;
+
+            charts.status = new Chart(document.getElementById('statusChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Complete', 'Incomplete'],
+                    datasets: [{
+                        data: [complete, incomplete],
+                        backgroundColor: ['#22c55e', '#ef4444'],
+                        borderColor: '#1e1e1e',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#e0e0e0' } },
+                        tooltip: { backgroundColor: 'rgba(0,0,0,0.7)' }
+                    }
+                }
+            });
+
+            // Timing Chart (sorted by timestamp)
+            const sorted = [...filteredSessions].sort((a, b) => 
+                new Date(a.timestamp || 0) - new Date(b.timestamp || 0)
+            ).slice(-20);
+
+            charts.timing = new Chart(document.getElementById('timingChart'), {
+                type: 'line',
+                data: {
+                    labels: sorted.map((s, i) => `S${i+1}`),
+                    datasets: [
+                        {
+                            label: 'Draw Time (s)',
+                            data: sorted.map(s => (s.total_drawing_time_ms || 0) / 1000),
+                            borderColor: '#3b82f6',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        },
+                        {
+                            label: 'Pause Time (s)',
+                            data: sorted.map(s => (s.total_pause_time_ms || 0) / 1000),
+                            borderColor: '#f97316',
+                            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                            tension: 0.3,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#e0e0e0' } },
+                        tooltip: { backgroundColor: 'rgba(0,0,0,0.7)' }
+                    },
+                    scales: {
+                        y: { ticks: { color: '#999' }, grid: { color: '#333' } },
+                        x: { ticks: { color: '#999' }, grid: { display: false } }
+                    }
+                }
+            });
+
+            // Task Performance
+            const taskStats = [1, 2, 3].map(taskId => {
+                const sessions = filteredSessions.filter(s => s.task_count == taskId);
+                return {
+                    task: `Task ${taskId}`,
+                    avg: sessions.length > 0 ? (sessions.reduce((sum, s) => sum + (s.score || 0), 0) / sessions.length).toFixed(1) : 0,
+                    complete: sessions.filter(s => s.is_complete).length
+                };
+            });
+
+            charts.taskPerformance = new Chart(document.getElementById('taskPerformanceChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Task 1', 'Task 2', 'Task 3'],
+                    datasets: [
+                        {
+                            label: 'Avg Score',
+                            data: taskStats.map(t => t.avg),
+                            borderColor: '#7c3aed',
+                            backgroundColor: 'rgba(124, 58, 237, 0.2)',
+                            fill: true
+                        },
+                        {
+                            label: 'Completion %',
+                            data: taskStats.map(t => {
+                                const total = filteredSessions.filter(s => s.task_count == (taskStats.indexOf(t) + 1)).length;
+                                return total > 0 ? ((t.complete / total) * 100) : 0;
+                            }),
+                            borderColor: '#ec4899',
+                            backgroundColor: 'rgba(236, 72, 153, 0.2)',
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#e0e0e0' } },
+                        tooltip: { backgroundColor: 'rgba(0,0,0,0.7)' }
+                    },
+                    scales: {
+                        r: { ticks: { color: '#999' }, grid: { color: '#333' } }
+                    }
+                }
+            });
+
+            // Validation Status
+            const dynamicValid = filteredSessions.filter(s => s.dynamic_valid).length;
+            const staticValid = filteredSessions.filter(s => s.static_valid).length;
+            const both = filteredSessions.filter(s => s.dynamic_valid && s.static_valid).length;
+            const neither = filteredSessions.length - dynamicValid - staticValid + both;
+
+            charts.validation = new Chart(document.getElementById('validationChart'), {
+                type: 'polarArea',
+                data: {
+                    labels: ['Both Valid', 'Dynamic Only', 'Static Only', 'Neither'],
+                    datasets: [{
+                        data: [both, dynamicValid - both, staticValid - both, neither],
+                        backgroundColor: [
+                            'rgba(34, 197, 94, 0.6)',
+                            'rgba(59, 130, 246, 0.6)',
+                            'rgba(249, 115, 22, 0.6)',
+                            'rgba(239, 68, 68, 0.6)'
+                        ],
+                        borderColor: '#1e1e1e',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#e0e0e0' } },
+                        tooltip: { backgroundColor: 'rgba(0,0,0,0.7)' }
+                    },
+                    scales: {
+                        r: { ticks: { color: '#999' }, grid: { color: '#333' } }
+                    }
+                }
+            });
+
+            // Quality Chart
+            const efficiency = filteredSessions.filter(s => s.drawing_efficiency >= 70).length;
+            const quality = filteredSessions.filter(s => s.shape_quality >= 70).length;
+            const both_high = filteredSessions.filter(s => s.drawing_efficiency >= 70 && s.shape_quality >= 70).length;
+
+            charts.quality = new Chart(document.getElementById('qualityChart'), {
+                type: 'bubble',
+                data: {
+                    datasets: [
+                        {
+                            label: 'Sessions',
+                            data: filteredSessions.map(s => ({
+                                x: s.drawing_efficiency || 0,
+                                y: s.shape_quality || 0,
+                                r: Math.sqrt(s.score || 1) / 2
+                            })),
+                            backgroundColor: 'rgba(124, 58, 237, 0.5)',
+                            borderColor: '#7c3aed',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#e0e0e0' } },
+                        tooltip: { backgroundColor: 'rgba(0,0,0,0.7)' }
+                    },
+                    scales: {
+                        x: { ticks: { color: '#999' }, grid: { color: '#333' }, min: 0, max: 100 },
+                        y: { ticks: { color: '#999' }, grid: { color: '#333' }, min: 0, max: 100 }
+                    }
+                }
+            });
+
+            // Mental Health Trends
+            const sorted_mh = [...filteredSessions].sort((a, b) => 
+                new Date(a.timestamp || 0) - new Date(b.timestamp || 0)
+            ).slice(-15);
+
+            charts.mentalHealthTrends = new Chart(document.getElementById('mentalHealthTrends'), {
+                type: 'line',
+                data: {
+                    labels: sorted_mh.map((s, i) => `S${i+1}`),
+                    datasets: [
+                        {
+                            label: 'Stress',
+                            data: sorted_mh.map(s => s.stress_score || 0),
+                            borderColor: '#ef4444',
+                            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                            tension: 0.3
+                        },
+                        {
+                            label: 'Anxiety',
+                            data: sorted_mh.map(s => s.anxiety_score || 0),
+                            borderColor: '#f97316',
+                            backgroundColor: 'rgba(249, 115, 22, 0.1)',
+                            tension: 0.3
+                        },
+                        {
+                            label: 'Burnout',
+                            data: sorted_mh.map(s => s.burnout_score || 0),
+                            borderColor: '#eab308',
+                            backgroundColor: 'rgba(234, 179, 8, 0.1)',
+                            tension: 0.3
+                        },
+                        {
+                            label: 'Wellness',
+                            data: sorted_mh.map(s => s.overall_wellness || 50),
+                            borderColor: '#22c55e',
+                            backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                            tension: 0.3
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#e0e0e0' } },
+                        tooltip: { backgroundColor: 'rgba(0,0,0,0.7)' }
+                    },
+                    scales: {
+                        y: { ticks: { color: '#999' }, grid: { color: '#333' }, min: 0, max: 100 },
+                        x: { ticks: { color: '#999' }, grid: { display: false } }
+                    }
+                }
+            });
+
+            // Wellness Distribution
+            const wellnessRanges = [
+                { label: 'Critical (0-20)', min: 0, max: 20, color: '#ef4444' },
+                { label: 'Poor (21-40)', min: 21, max: 40, color: '#f97316' },
+                { label: 'Fair (41-60)', min: 41, max: 60, color: '#eab308' },
+                { label: 'Good (61-80)', min: 61, max: 80, color: '#3b82f6' },
+                { label: 'Excellent (81-100)', min: 81, max: 100, color: '#22c55e' }
+            ];
+            const wellnessCounts = wellnessRanges.map(range => 
+                filteredSessions.filter(s => (s.overall_wellness || 50) >= range.min && (s.overall_wellness || 50) <= range.max).length
+            );
+
+            charts.wellnessDistribution = new Chart(document.getElementById('wellnessDistribution'), {
+                type: 'bar',
+                data: {
+                    labels: wellnessRanges.map(r => r.label),
+                    datasets: [{
+                        label: 'Sessions',
+                        data: wellnessCounts,
+                        backgroundColor: wellnessRanges.map(r => r.color),
+                        borderColor: 'transparent',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(0,0,0,0.7)' } },
+                    scales: {
+                        y: { beginAtZero: true, ticks: { color: '#999' }, grid: { color: '#333' } },
+                        x: { ticks: { color: '#999' }, grid: { display: false } }
+                    }
+                }
+            });
+        }
+
+        function updateTables() {
+            // Task Summary
+            const taskBody = document.getElementById('taskSummaryBody');
+            taskBody.innerHTML = '';
+
+            [1, 2, 3].forEach(taskId => {
+                const sessions = filteredSessions.filter(s => s.task_count == taskId);
+                if (sessions.length === 0) return;
+
+                const avgScore = (sessions.reduce((sum, s) => sum + (s.score || 0), 0) / sessions.length).toFixed(1);
+                const complete = sessions.filter(s => s.is_complete).length;
+                const avgTime = (sessions.reduce((sum, s) => sum + (s.total_drawing_time_ms || 0), 0) / sessions.length / 1000).toFixed(1);
+                const validBoth = sessions.filter(s => s.dynamic_valid && s.static_valid).length;
+
+                const row = `<tr>
+                    <td><strong>Task ${taskId}</strong></td>
+                    <td>${sessions.length}</td>
+                    <td>${avgScore}</td>
+                    <td><span class="badge badge-complete">${complete}/${sessions.length}</span></td>
+                    <td>${avgTime}s</td>
+                    <td><span class="badge badge-dynamic-valid">${validBoth}/${sessions.length}</span></td>
+                </tr>`;
+                taskBody.innerHTML += row;
+            });
+
+            // Score Brackets
+            const brackets = [
+                { label: '0-20', min: 0, max: 20 },
+                { label: '21-40', min: 21, max: 40 },
+                { label: '41-60', min: 41, max: 60 },
+                { label: '61-80', min: 61, max: 80 },
+                { label: '81-100', min: 81, max: 100 }
+            ];
+
+            const bracketsBody = document.getElementById('scoreBracketsBody');
+            bracketsBody.innerHTML = '';
+
+            brackets.forEach(bracket => {
+                const sessions = filteredSessions.filter(s => (s.score || 0) >= bracket.min && (s.score || 0) <= bracket.max);
+                if (sessions.length === 0) return;
+
+                const pct = ((sessions.length / filteredSessions.length) * 100).toFixed(1);
+                const avgTime = (sessions.reduce((sum, s) => sum + (s.total_drawing_time_ms || 0), 0) / sessions.length / 1000).toFixed(1);
+                const status = bracket.max >= 70 ? 'Good' : bracket.max >= 40 ? 'Fair' : 'Poor';
+
+                const row = `<tr>
+                    <td><strong>${bracket.label}</strong></td>
+                    <td>${sessions.length}</td>
+                    <td>${pct}%</td>
+                    <td>${avgTime}s</td>
+                    <td><span class="badge ${bracket.max >= 70 ? 'badge-valid' : bracket.max >= 40 ? 'badge-incomplete' : 'badge-invalid'}">${status}</span></td>
+                </tr>`;
+                bracketsBody.innerHTML += row;
+            });
+
+            // Top Performers
+            const topBody = document.getElementById('topPerformersBody');
+            topBody.innerHTML = '';
+            const sorted = [...filteredSessions].sort((a, b) => (b.score || 0) - (a.score || 0)).slice(0, 5);
+            sorted.forEach(s => {
+                const grade = s.score >= 80 ? 'A' : s.score >= 60 ? 'B' : s.score >= 40 ? 'C' : 'F';
+                const row = `<tr>
+                    <td><code>${s.session_id.substring(0, 12)}...</code></td>
+                    <td><strong>${s.score.toFixed(1)}</strong></td>
+                    <td><span class="badge badge-dynamic-valid">${grade}</span></td>
+                    <td>${s.task_count}</td>
+                    <td><span class="badge ${s.is_complete ? 'badge-complete' : 'badge-incomplete'}">${s.is_complete ? 'Complete' : 'Incomplete'}</span></td>
+                </tr>`;
+                topBody.innerHTML += row;
+            });
+
+            // Bottom Performers
+            const bottomBody = document.getElementById('bottomPerformersBody');
+            bottomBody.innerHTML = '';
+            const bottom = [...filteredSessions].sort((a, b) => (a.score || 0) - (b.score || 0)).slice(0, 5);
+            bottom.forEach(s => {
+                const issues = (s.total_errors || 0) + (!s.dynamic_valid ? 1 : 0) + (!s.static_valid ? 1 : 0);
+                const row = `<tr>
+                    <td><code>${s.session_id.substring(0, 12)}...</code></td>
+                    <td><strong>${s.score.toFixed(1)}</strong></td>
+                    <td><span class="badge badge-incomplete">${s.score >= 40 ? 'C' : 'F'}</span></td>
+                    <td>${issues}</td>
+                    <td><span class="badge ${s.dynamic_valid && s.static_valid ? 'badge-valid' : 'badge-invalid'}">${s.dynamic_valid && s.static_valid ? 'Valid' : 'Invalid'}</span></td>
+                </tr>`;
+                bottomBody.innerHTML += row;
+            });
+        }
+
+        function updateInsights() {
+            const total = filteredSessions.length;
+            if (total === 0) return;
+
+            // Best and worst tasks
+            const taskStats = [1, 2, 3].map(taskId => {
+                const sessions = filteredSessions.filter(s => s.task_count == taskId);
+                const avg = sessions.length > 0 ? sessions.reduce((sum, s) => sum + (s.score || 0), 0) / sessions.length : 0;
+                const complete = sessions.length > 0 ? sessions.filter(s => s.is_complete).length : 0;
+                return { task: `Task ${taskId}`, avg, complete, sessions: sessions.length, errors: sessions.reduce((sum, s) => sum + (s.total_errors || 0), 0) };
+            }).sort((a, b) => b.avg - a.avg);
+
+            document.getElementById('bestTask').textContent = taskStats[0].task;
+            document.getElementById('bestTaskDesc').textContent = `${taskStats[0].avg.toFixed(1)}/100 avg | ${((taskStats[0].complete/taskStats[0].sessions)*100).toFixed(0)}% complete`;
+
+            const worst = taskStats[taskStats.length - 1];
+            document.getElementById('problemTask').textContent = worst.task;
+            document.getElementById('problemTaskDesc').textContent = `${worst.avg.toFixed(1)}/100 avg | ${worst.errors} total errors`;
+
+            // Duration and Strokes
+            const avgDuration = filteredSessions.reduce((sum, s) => sum + (s.total_drawing_time_ms || 0) + (s.total_pause_time_ms || 0), 0) / total / 1000;
+            const avgStrokes = filteredSessions.reduce((sum, s) => sum + (s.total_strokes || 0), 0) / total;
+
+            document.getElementById('avgDuration').textContent = avgDuration.toFixed(1) + 's';
+            document.getElementById('avgStrokes').textContent = Math.round(avgStrokes);
+
+            // Quality Trend
+            const recentAvg = filteredSessions.slice(-5).reduce((sum, s) => sum + (s.score || 0), 0) / Math.min(5, filteredSessions.length);
+            const overallAvg = filteredSessions.reduce((sum, s) => sum + (s.score || 0), 0) / total;
+            const trend = recentAvg > overallAvg ? '📈 Improving' : recentAvg < overallAvg ? '📉 Declining' : '➡️ Stable';
+
+            document.getElementById('qualityTrend').textContent = trend.split(' ')[0];
+            document.getElementById('trendDesc').textContent = `Recent avg: ${recentAvg.toFixed(1)} vs overall: ${overallAvg.toFixed(1)}`;
+
+            // Consistency
+            const scores = filteredSessions.map(s => s.score || 0);
+            const mean = scores.reduce((a, b) => a + b) / scores.length;
+            const variance = scores.reduce((sum, score) => sum + Math.pow(score - mean, 2), 0) / scores.length;
+            const stdDev = Math.sqrt(variance);
+            const consistency = Math.max(0, 100 - (stdDev * 2)).toFixed(0);
+
+            document.getElementById('consistency').textContent = consistency + '%';
+
+            // Mental Health Metrics
+            const avgStress = (filteredSessions.reduce((sum, s) => sum + (s.stress_score || 0), 0) / total).toFixed(1);
+            const avgAnxiety = (filteredSessions.reduce((sum, s) => sum + (s.anxiety_score || 0), 0) / total).toFixed(1);
+            const avgBurnout = (filteredSessions.reduce((sum, s) => sum + (s.burnout_score || 0), 0) / total).toFixed(1);
+            const avgCognitive = (filteredSessions.reduce((sum, s) => sum + (s.cognitive_load_score || 0), 0) / total).toFixed(1);
+            const avgWellness = (filteredSessions.reduce((sum, s) => sum + (s.overall_wellness || 50), 0) / total).toFixed(1);
+            
+            // Count critical wellness sessions (< 30)
+            const criticalSessions = filteredSessions.filter(s => (s.overall_wellness || 50) < 30).length;
+
+            document.getElementById('avgStress').textContent = avgStress;
+            document.getElementById('avgAnxiety').textContent = avgAnxiety;
+            document.getElementById('avgBurnout').textContent = avgBurnout;
+            document.getElementById('avgCognitive').textContent = avgCognitive;
+            document.getElementById('avgWellness').textContent = avgWellness;
+            document.getElementById('criticalCount').textContent = criticalSessions;
+        }
+
+        function goBack() {
+            window.location.href = 'reports.html';
+        }
+
+        function refreshData() {
+            loadSessions();
+        }
+
+        // Load on page load
+        window.addEventListener('load', loadSessions);
+    </script>
+</body>
+</html>

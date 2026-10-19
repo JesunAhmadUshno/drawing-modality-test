@@ -15,6 +15,28 @@
 
 ---
 
+## Start here
+
+1. Open the live demo: https://jesunahmadushno.github.io/drawing-modality-test/
+   Draw something. The demo shows capture and the interface. Full
+   analysis needs the backend.
+2. Run the full app: install the Python requirements, start the Flask
+   backend (`backend_api.py`, port 5000), then open the frontend.
+   The Quick Start section below gives the exact steps.
+3. Run the test suite: `python tests/integration_tests.py`.
+4. Read `features/dynamic_features.py` and
+   `features/static_features.py`. Those two files are the science.
+
+## Results, from the repo's own record
+
+| Item | Value |
+| :--- | :--- |
+| Sessions analyzed | 35, with full metrics extraction |
+| Metrics per session | 32 (20 dynamic + 12 static) |
+| Mental health dimensions | 4: stress, anxiety, burnout, cognitive load |
+| Analysis time per session | Under 1.2 seconds |
+| Stored session records in repo | 235 files under `Records/` |
+
 ## 📋 Project Overview
 
 **PulseKey** is a comprehensive drawing analysis system that captures, analyzes, and assesses drawing sessions to predict psychological states and mental health indicators. 
@@ -1117,4 +1139,24 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 **Last Updated:** March 1, 2026  
 **Maintainers:** Jesun Ahmad Ushno & Team  
 **Documentation:** See [COMPREHENSIVE_WORKLOG.md](COMPREHENSIVE_WORKLOG.md)
+
+---
+
+## Learn path: from PulseKey to signal-ml-lab
+
+This repo is the Learn base for signal-ml-lab (roadmap project 17). The
+path from here to there:
+
+1. Read the two extractors end to end: `features/dynamic_features.py`
+   (time: speed, tremor, rhythm, pressure) and
+   `features/static_features.py` (shape: geometry, symmetry, density).
+   Write down how each metric is computed.
+2. Run `tests/integration_tests.py` against the stored sessions. Change
+   one input. Watch one metric move. Note which metrics are stable and
+   which are fragile.
+3. Add one new metric end to end: extractor, scoring, dashboard chart,
+   and a test with a known input.
+4. Swap the input. Feed a second signal (a pointer path or a keystroke
+   stream) through the same pipeline shape: capture, extract, score,
+   show. That swap is the first build step of signal-ml-lab.
 

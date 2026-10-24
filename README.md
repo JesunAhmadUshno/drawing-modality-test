@@ -64,7 +64,7 @@
 
 - **35 sessions** analyzed with full metrics extraction
 - **32 metrics** per session (20 dynamic + 12 static)
-- **4 mental health dimensions** tracked
+- **4 exploratory signal dimensions** (stress, anxiety, burnout, cognitive load) explored as research questions, not clinical measures
 - **8+ visualization types** available
 - **< 1.2 seconds** per session analysis time
 
@@ -510,7 +510,7 @@ python tests/integration_tests.py
 | **Unit Tests** | Feature extraction for known inputs | ✅ Passing | All algorithm correctness |
 | **Integration Tests** | Pipeline end-to-end | ✅ Passing | Dynamic + Static + Assessment |
 | **Real Data Tests** | 35 actual sessions | ✅ Passing | Production data validation |
-| **Mental Health Tests** | Assessment engine | ✅ Passing | All 4 dimensions |
+| **Exploratory Metrics Tests** | Signal computation engine | ✅ Passing | All 4 exploratory dimensions |
 | **API Tests** | All Flask endpoints | ✅ Passing | Request/response formats |
 | **Performance Tests** | Speed benchmarks | ✅ Passing | < 1.2s per session |
 

@@ -1,4 +1,4 @@
-# 🎨 PulseKey Assessment System - Drawing Modality Analysis
+# 🎨 PulseKey — Drawing Modality Research Prototype
 
 [![GitHub Pages](https://img.shields.io/badge/demo-live-success)](https://jesunahmadushno.github.io/drawing-modality-test/)
 [![Python](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
@@ -9,7 +9,7 @@
 **💻 Full App:** [Open in Codespaces](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=JesunAhmadUshno/drawing-modality-test)  
 **📘 Setup Guide:** [SETUP_README.md](SETUP_README.md) - Complete installation & deployment instructions
 
-**Status:** ✅ Production Ready  
+**Status:** 🧪 Research prototype — not a clinical tool  
 **Version:** 3.0  
 **Date:** March 1, 2026  
 
@@ -33,22 +33,22 @@
 | :--- | :--- |
 | Sessions analyzed | 35, with full metrics extraction |
 | Metrics per session | 32 (20 dynamic + 12 static) |
-| Mental health dimensions | 4: stress, anxiety, burnout, cognitive load |
+| Exploratory signal dimensions | 4 research questions explored: stress, anxiety, burnout, cognitive load (not clinically validated) |
 | Analysis time per session | Under 1.2 seconds |
 | Stored session records in repo | 235 files under `Records/` |
 
 ## 📋 Project Overview
 
-**PulseKey** is a comprehensive drawing analysis system that captures, analyzes, and assesses drawing sessions to predict psychological states and mental health indicators. 
+**PulseKey** is a research prototype from a mentAImage internship exploring drawing dynamics (tremor, pauses, speed, pressure) in relation to stress, anxiety, burnout, and cognitive load. It is research code, not a clinical tool: it does not diagnose, predict, or assess psychological states. 
 
 ### Core Capabilities
 
 - **Real-Time Capture:** Captures drawing strokes with full temporal and spatial data (coordinates, pressure, timing)
 - **Dynamic Analysis:** 20+ temporal metrics (speed, acceleration, tremor, pauses, rhythm)
 - **Static Analysis:** 12+ geometric metrics (shape, symmetry, density, contours)
-- **Mental Health Assessment:** Predicts stress, anxiety, burnout, and cognitive load using 10-indicator model
+- **Exploratory Signal Analysis:** Computes drawing-dynamic metrics (tremor, pauses, speed, pressure) to explore research questions around stress, anxiety, burnout, and cognitive load. Exploratory only — not a clinical assessment.
 - **Interactive Dashboard:** Comprehensive analytics with 8+ chart types and filterable session management
-- **Wellness Recommendations:** Personalized health recommendations based on assessment
+- **Example Visualizations:** Charts of drawing-dynamic metrics for exploration (not health advice).
 
 ### Technology Stack
 
@@ -301,7 +301,7 @@ Expected success:
 ✅ Session submitted successfully
 ✅ Report generated
 ✅ Metrics extracted: 32/32
-✅ Mental health assessment: Complete
+✅ Exploratory signal metrics: computed
 ```
 
 ---
@@ -350,33 +350,33 @@ Grade Conversion:
   <40 = F (Poor)
 ```
 
-### Mental Health Assessment (NEW!)
-**4 Psychological Dimensions**
+### Exploratory Signal Metrics
+**4 exploratory signal dimensions** (research questions, not clinical measures)
 
-| Dimension | Formula | Interpretation | Range |
+| Signal | Composite formula | Research note | Scale |
 |-----------|---------|-----------------|-------|
-| **Stress Score** | 0.4×Tremor + 0.3×SpeedVar + 0.2×Pauses + 0.1×Pressure | Physical tension during execution | 0-100 |
-| **Anxiety Score** | 0.25×Tremor + 0.3×Pauses + 0.2×SpeedVar + 0.15×Fluidity + 0.1×Pressure | Uncertainty and hesitation | 0-100 |
-| **Burnout Score** | 0.35×LowEff + 0.25×LowQuality + 0.2×Incomplete + 0.15×Duration + 0.05×Trend | Exhaustion and motivation decline | 0-100 |
-| **Cognitive Load** | 0.25×SpeedVar + 0.25×Errors + 0.2×Fluidity + 0.2×Incomplete + 0.1×Duration | Mental workload and fatigue | 0-100 |
+| **Exploratory stress signal** | 0.4×Tremor + 0.3×SpeedVar + 0.2×Pauses + 0.1×Pressure | Research signal only — not a measure of stress | 0-100 |
+| **Exploratory anxiety signal** | 0.25×Tremor + 0.3×Pauses + 0.2×SpeedVar + 0.15×Fluidity + 0.1×Pressure | Research signal only — not a measure of anxiety | 0-100 |
+| **Exploratory burnout signal** | 0.35×LowEff + 0.25×LowQuality + 0.2×Incomplete + 0.15×Duration + 0.05×Trend | Research signal only — not a measure of burnout | 0-100 |
+| **Exploratory cognitive-load signal** | 0.25×SpeedVar + 0.25×Errors + 0.2×Fluidity + 0.2×Incomplete + 0.1×Duration | Research signal only — not a measure of cognitive load | 0-100 |
 
-**Wellness Calculation:**
-```
-Overall Wellness = 100 - avg(Stress, Anxiety, Burnout, Cognitive Load)
-
-Wellness Levels:
-  80-100 = Excellent    (Minimal concerns)
-  60-80  = Good         (Minor concerns)
-  40-60  = Fair         (Notable concerns)
-  20-40  = Poor         (Significant concerns)
-  0-20   = Critical     (Severe concerns)
+**Research note:** These composite signals are exploratory research outputs. They are not validated measures of psychological states and must not be used for health decisions.
 ```
 
-**Personalized Recommendations:**
-- High stress: "Take regular breaks, practice deep breathing"
-- High anxiety: "Slow down pace, focus on precision over speed"
-- High burnout: "Take longer breaks, reduce task complexity"
-- High cognitive load: "Break tasks into smaller parts, reduce distractions"
+
+
+
+
+
+
+
+```
+
+
+
+
+
+
 
 ---
 
@@ -534,11 +534,11 @@ python demo.py
 | Metrics Extracted Per Session | 32 | ✅ Complete |
 | Validation Pass Rate | 100% | ✅ All valid |
 | Average Processing Time | 0.85s | ✅ Fast |
-| Mental Health Assessment Coverage | 100% | ✅ All scored |
-| Average Stress Score | 35.2 | ✅ Moderate |
-| Average Anxiety Score | 28.4 | ✅ Reasonable |
-| Average Burnout Score | 22.1 | ✅ Low |
-| Average Overall Wellness | 70.8 | ✅ Good |
+| Exploratory signal coverage | 100% | ✅ All computed |
+| Avg. exploratory stress signal | 35.2 | research signal, not a diagnosis |
+| Avg. exploratory anxiety signal | 28.4 | research signal, not a diagnosis |
+| Avg. exploratory burnout signal | 22.1 | research signal, not a diagnosis |
+| Avg. exploratory composite signal | 70.8 | research signal, not a health measure |
 
 ### Test Data Included
 
@@ -580,7 +580,7 @@ with open('test_data/session_json/session-task1-two-pentagon_copy.json') as f:
 results = pipeline.analyze_session(session)
 report = pipeline.generate_report(results)
 
-# Get mental health assessment
+# Get exploratory signal metrics
 mh_assessment = mh_engine.assess(report)
 
 # Print results
@@ -680,7 +680,7 @@ Response:
 }
 ```
 
-**4. Get Mental Health Assessment**
+**4. Get exploratory signal metrics**
 ```bash
 curl http://localhost:5000/api/mental-health/session-1772354908
 ```
@@ -829,7 +829,7 @@ PRODUCTION = {
 | Single session analysis | 0.85s | 45 MB |
 | Batch 3 sessions | 2.8s | 85 MB |
 | JSON report generation | 150ms | 5 MB |
-| Mental health assessment | 50ms | 2 MB |
+| Exploratory signal computation | 50ms | 2 MB |
 | Dashboard load (35 sessions) | 1.2s | 120 MB |
 
 ### Hardware Requirements
@@ -1040,12 +1040,12 @@ For comprehensive technical documentation covering:
 ✅ **Integration Pipeline** - Complete feature combination & scoring  
 ✅ **Frontend Interface** - 4 complete pages (home, task, reports, analytics)  
 ✅ **Backend API** - 6 RESTful endpoints with full functionality  
-✅ **Mental Health Engine** - 4-dimensional psychological assessment  
+✅ **Exploratory signal engine** - drawing-dynamic metrics for research exploration  
 ✅ **Test Suite** - 14+ comprehensive tests with real data  
 ✅ **Documentation** - 3000+ line comprehensive technical reference  
-✅ **Production Ready** - Deployed and stable with 35 analyzed sessions  
+  
 
-**Status:** 🎉 **98/100 - PRODUCTION READY**
+
 
 ---
 
@@ -1134,7 +1134,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-**Project Status:** ✅ Production Ready  
+**Project Status:** 🧪 Research prototype — not a clinical tool  
 **Version:** 3.0  
 **Last Updated:** March 1, 2026  
 **Maintainers:** Jesun Ahmad Ushno & Team  

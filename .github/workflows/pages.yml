@@ -1,8 +1,12 @@
-name: Deploy Frontend to GitHub Pages
+name: Pages
 
+# Publishes two things to GitHub Pages in one artifact:
+#   /                 the capture app in frontend/, uploaded as-is (unchanged behaviour)
+#   /dashboard/       the live dashboard in site/, built from Records/ with a parity check against the recorded reports
 on:
   push:
-    branches: ["main", "master"]
+    branches: [main, master]
+    paths: ['frontend/**', 'site/**', 'Records/**', 'test_data/**', 'features/**', 'integration_pipeline.py', 'analysis/**', 'RESEARCH_PAPER.md', 'README.md', '.github/workflows/pages.yml']
   workflow_dispatch:
 
 permissions:
@@ -11,27 +15,38 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  group: pages
+  cancel-in-progress: true
 
 jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+      - run: npm ci
+        working-directory: site
+      - run: npm run build
+        working-directory: site
+      - name: Assemble capture app at the root and dashboard under /dashboard/
+        run: |
+          mkdir -p _site
+          cp -r frontend/. _site/
+          cp -r site/dist _site/dashboard
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: './frontend'
-      
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v4

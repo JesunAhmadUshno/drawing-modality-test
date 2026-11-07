@@ -328,7 +328,7 @@ def submit_session():
                               for k, v in mental_health_profile.indicators.items()}
             }
             
-            print(f"   💭 Mental Health Assessment: {mental_health_profile.wellness_level} (Wellness: {mental_health_profile.overall_wellness}/100)")
+            print(f"   💭 Mental Health Assessment: {report['mental_health_assessment']['wellness_level']} (Wellness: {mental_health_profile.overall_wellness}/100)")
             
             # Save report to session folder
             report_path = session_dir / f'{session_id}_report.json'

@@ -1,5 +1,5 @@
 // Build-time data step: reads the repo's own records and writes src/generated/derived.json.
-// Ships stroke geometry and timing only (x, y, ms). deviceInfo, user agents, PNGs and pressure arrays stay out.
+// Ships stroke geometry and timing only (x, y, ms). deviceInfo, browser details, PNGs and pressure arrays stay out.
 // Run: node scripts/derive.mjs (part of `npm run build`).
 import fs from 'node:fs';
 import path from 'node:path';

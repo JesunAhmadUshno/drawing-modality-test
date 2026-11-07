@@ -442,7 +442,7 @@ function Engine() {
         <span className="pill bad">Stress {one(R.stressValues)} · Anxiety {one(R.anxietyValues)}</span>
       </div>
       <div style={{ overflowX: 'auto' }}>
-        <table>
+        <table style={{ minWidth: 960 }}>
           <thead><tr><th>Indicator</th><th>Key read</th><th>Present</th><th>Fallback</th><th>Feeds</th></tr></thead>
           <tbody>
             {D.audit.map((a) => (
@@ -527,7 +527,7 @@ function Claims() {
       <h2>The paper's results section does not come from this code or these records.</h2>
       <p className="sub">Left: quoted from the documents, not reproduced. Right: computed from <code>Records/</code> at build time. The README now frames PulseKey as a research prototype; the paper's section 4 still reads as a validated result.</p>
       <div style={{ overflowX: 'auto', marginTop: 12 }}>
-        <table>
+        <table style={{ minWidth: 680 }}>
           <thead><tr><th>Source</th><th>Claimed (quoted, not reproduced)</th><th>What the records show</th><th>Verdict</th></tr></thead>
           <tbody>
             {rows.map(([c, claim, rec, v]) => (

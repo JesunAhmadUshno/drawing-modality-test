@@ -67,7 +67,7 @@ const find = (lines, needle, file) => {
 };
 const nums = (t) => (t.match(/-?\d+(\.\d+)?/g) ?? []).map(Number);
 const claims = {
-  sessions: find(paper, 'real-world drawing sessions', 'RESEARCH_PAPER.md'),
+  sessions: find(paper, 'The system was validated on', 'RESEARCH_PAPER.md'),
   readmeSessions: find(readme, 'sessions** analyzed', 'README.md'),
   taskAverages: paper.map((l, i) => [l, i]).filter(([l]) => l.includes('Average observed:')).map(([l, i]) => ({ file: 'RESEARCH_PAPER.md', line: i + 1, text: l.trim().replace(/^- /, ''), value: nums(l)[0] })),
   complete: find(paper, 'Sessions with complete metrics:', 'RESEARCH_PAPER.md'),
@@ -81,6 +81,7 @@ for (const k of ['stress', 'anxiety', 'rStressAnxiety', 'rEffBurnout', 'sessions
 claims.stress.sd = nums(claims.stress.text)[1];
 // the r line reads "Stress ↔ Anxiety: r = 0.62": take the number after "r ="
 for (const k of ['rStressAnxiety', 'rEffBurnout']) claims[k].value = Number(claims[k].text.match(/r = (-?[\d.]+)/)[1]);
+claims.wellnessGood.value = Number(claims.wellnessGood.text.match(/:\s*(\d+)/)[1]);
 
 const wellnessLevel = (w) => (w >= 80 ? 'Excellent' : w >= 60 ? 'Good' : w >= 40 ? 'Fair' : w >= 20 ? 'Poor' : 'Critical');
 const tally = (arr) => arr.reduce((m, k) => ((m[k] = (m[k] ?? 0) + 1), m), {});
@@ -100,7 +101,7 @@ const out = {
     duplicatedFiles: files.length - groups.size, totalPoints, distinctPoints: groupList.reduce((s, g) => s + g.points, 0),
     pressurePoints, pressureModeShare: pressurePoints ? Math.max(...pressureHist.values()) / pressurePoints : 0,
     pressureMode: [...pressureHist.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? null,
-    scoredReports: scored.length, completeReports: reports.filter((r) => r.complete).length,
+    scoredReports: scored.length, metricsPerReport: Math.max(...files.filter((f) => fs.existsSync(f.report)).map((f) => readJson(f.report).summary?.metrics_extracted ?? 0)), completeReports: reports.filter((r) => r.complete).length,
   },
   pressureHist: [...pressureHist.entries()].map(([value, count]) => ({ value, count })),
   groups: groupList.map(({ data, ...g }) => g),

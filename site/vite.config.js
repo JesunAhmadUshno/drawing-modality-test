@@ -6,4 +6,6 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   base: '/drawing-modality-test/dashboard/',
   plugins: [react()],
+  // The bundle carries ~31k recorded stroke points for the replay (about 250 kB gzipped); that is intended.
+  build: { chunkSizeWarningLimit: 900 },
 });

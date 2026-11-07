@@ -1,0 +1,14 @@
+/* Additions on top of the Lab OS base (styles.css is kept verbatim from the reference build). */
+.pad { position: relative; max-width: 760px; margin: 0 auto; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-strong); overflow: hidden; }
+.pad canvas { display: block; width: 100%; height: auto; aspect-ratio: 900 / 650; touch-action: none; cursor: crosshair; color: var(--text); }
+.pad-hint { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; color: var(--muted); font-size: 15px; pointer-events: none; }
+.tiles.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.tiles.five { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.tiles.five .tile .num { font-size: 22px; }
+.tile .num small { font-size: 0.55em; color: var(--muted); margin-left: 4px; }
+.flabel { display: block; font-size: 13px; color: var(--muted); margin-bottom: 6px; }
+svg.chart.replay { max-height: 460px; background: var(--surface-strong); border: 1px solid var(--border); border-radius: var(--radius-md); }
+.seg { flex-wrap: wrap; }
+td.mono, td .mono { word-break: break-word; }
+@media (max-width: 760px) { .tiles.five { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.card.window > .pad { margin-left: auto; margin-right: auto; }

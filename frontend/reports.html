@@ -697,6 +697,11 @@
             return `${minutes}m ${seconds}s`;
         }
 
+        // Everything shown here comes from Records/, which anyone who can POST /api/submit writes to.
+        function escapeHtml(value) {
+            return String(value).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+
         function formatValue(value) {
             if (value === null || value === undefined) return 'N/A';
             if (typeof value === 'number') return Number.isInteger(value) ? `${value}` : value.toFixed(4);
@@ -744,7 +749,7 @@
             const rows = flattenObject(dataObj)
                 .filter(r => r.metric)
                 .slice(0, 120)
-                .map(r => `<tr><td>${r.metric}</td><td>${formatValue(r.value)}</td></tr>`)
+                .map(r => `<tr><td>${escapeHtml(r.metric)}</td><td>${escapeHtml(formatValue(r.value))}</td></tr>`)
                 .join('');
 
             return `
@@ -844,7 +849,7 @@
                 document.getElementById('loadingContainer').innerHTML = `
                     <div style="color: #f5576c; text-align: center;">
                         <div>❌ Error loading sessions</div>
-                        <div style="font-size: 12px; margin-top: 10px; color: #888;">${error.message}</div>
+                        <div style="font-size: 12px; margin-top: 10px; color: #888;">${escapeHtml(error.message)}</div>
                         <button onclick="loadSessions()" style="margin-top: 15px; background: #3e3e3e; border: 1px solid #555; color: #cccccc; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Retry</button>
                     </div>
                 `;
@@ -878,7 +883,7 @@
 
                 card.innerHTML = `
                     <div class="session-header">
-                        <div class="session-id">${session.session_id}</div>
+                        <div class="session-id">${escapeHtml(session.session_id)}</div>
                     </div>
                     <div class="session-date">${date}</div>
                     <div class="session-time">${time}</div>
@@ -892,7 +897,7 @@
                     <div class="session-details">
                         <div class="detail-item">
                             <div class="detail-label">Grade</div>
-                            <div class="detail-value">${session.grade || 'N/A'}</div>
+                            <div class="detail-value">${escapeHtml(session.grade || 'N/A')}</div>
                         </div>
                         <div class="detail-item">
                             <div class="detail-label">Tasks</div>
@@ -916,8 +921,8 @@
                         </div>
                     </div>
                     <div class="session-actions">
-                        <button class="action-button" onclick="viewReport('${session.session_id}')">👁️ View</button>
-                        <button class="action-button" onclick="downloadReport('${session.session_id}')">⬇️ Download</button>
+                        <button class="action-button" onclick="viewReport(${escapeHtml(JSON.stringify(session.session_id))})">👁️ View</button>
+                        <button class="action-button" onclick="downloadReport(${escapeHtml(JSON.stringify(session.session_id))})">⬇️ Download</button>
                     </div>
                 `;
 
@@ -1113,8 +1118,8 @@
                 const imageHtml = images.length > 0
                     ? images.map(img => `
                         <div class="image-box">
-                            <img src="${API_BASE}${img.url}" alt="${img.name}">
-                            <div class="image-name">${img.name}</div>
+                            <img src="${escapeHtml(API_BASE + img.url)}" alt="${escapeHtml(img.name)}">
+                            <div class="image-name">${escapeHtml(img.name)}</div>
                         </div>
                     `).join('')
                     : '<div style="color:#888;font-size:13px;">No saved PNG images for this session.</div>';
@@ -1127,17 +1132,17 @@
 
                 const allMeasuredHtml = allMeasuredRows.map(r => `
                     <tr>
-                        <td>${r.metric}</td>
-                        <td>${formatValue(r.value)}</td>
+                        <td>${escapeHtml(r.metric)}</td>
+                        <td>${escapeHtml(formatValue(r.value))}</td>
                     </tr>
                 `).join('');
 
                 const reportContent = document.getElementById('reportContent');
                 reportContent.innerHTML = `
                     <div class="dashboard-grid">
-                        <div class="dashboard-card"><div class="k">Session ID</div><div class="v" style="font-size:14px;word-break:break-all;">${sessionId}</div></div>
+                        <div class="dashboard-card"><div class="k">Session ID</div><div class="v" style="font-size:14px;word-break:break-all;">${escapeHtml(sessionId)}</div></div>
                         <div class="dashboard-card"><div class="k">Score</div><div class="v">${(overall?.score || 0).toFixed(2)}</div></div>
-                        <div class="dashboard-card"><div class="k">Grade</div><div class="v">${overall?.grade || 'N/A'}</div></div>
+                        <div class="dashboard-card"><div class="k">Grade</div><div class="v">${escapeHtml(overall?.grade || 'N/A')}</div></div>
                         <div class="dashboard-card"><div class="k">Metrics</div><div class="v">${report?.summary?.metrics_extracted || 0}</div></div>
                         <div class="dashboard-card"><div class="k">Strokes</div><div class="v">${timing?.strokes || 0}</div></div>
                         <div class="dashboard-card"><div class="k">Points</div><div class="v">${timing?.points || 0}</div></div>

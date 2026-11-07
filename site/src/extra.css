@@ -11,4 +11,5 @@ svg.chart.replay { max-height: 460px; background: var(--surface-strong); border:
 .seg { flex-wrap: wrap; }
 td.mono, td .mono { word-break: break-word; }
 @media (max-width: 760px) { .tiles.five { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-.card.window > .pad { margin-left: auto; margin-right: auto; }
+.card.window > .pad { margin-left: auto; margin-right: auto; width: calc(100% - 56px); }
+@media (max-width: 760px) { .card.window > .pad { width: calc(100% - 36px); } }

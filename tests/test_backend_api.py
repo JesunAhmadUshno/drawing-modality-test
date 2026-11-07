@@ -37,13 +37,14 @@ PNG = "UFdORUQ="  # base64 of b"PWNED"
 
 @pytest.mark.parametrize("body", [
     {"sessionId": "../escaped", "tasks": {}},
-    {"sessionId": "/tmp/abs-session", "tasks": {}},
+    {"sessionId": "ABS_SESSION", "tasks": {}},
     {"sessionId": "ok-1", "tasks": {"1": {"pngData": PNG, "pngFileName": "ABS_TARGET"}}},
     {"sessionId": "ok-2", "tasks": {"1": {"pngData": PNG, "pngFileName": "../../out.png"}}},
     {"sessionId": "ok-3", "tasks": {"../../x": {"pngData": PNG}}},
 ])
 def test_submit_rejects_names_that_escape_the_session_folder(client, tmp_path, monkeypatch, body):
-    body = json.loads(json.dumps(body).replace("ABS_TARGET", str(tmp_path / "abs_write.txt")))
+    body = json.loads(json.dumps(body).replace("ABS_TARGET", str(tmp_path / "abs_write.txt"))
+                      .replace("ABS_SESSION", str(tmp_path / "abs-session")))
     work = tmp_path / "work"
     work.mkdir()
     monkeypatch.chdir(work)  # Records/ sits one level down, so an escape lands in tmp_path
@@ -51,7 +52,7 @@ def test_submit_rejects_names_that_escape_the_session_folder(client, tmp_path, m
     assert r.status_code == 400, r.get_json()
     written = sorted(str(p.relative_to(tmp_path)) for p in tmp_path.rglob("*") if p.is_file())
     assert written == [], written
-    assert not (tmp_path / "escaped").exists() and not Path("/tmp/abs-session").exists()
+    assert not (tmp_path / "escaped").exists() and not (tmp_path / "abs-session").exists()
 
 
 def test_read_routes_reject_dot_dot_session_id(client):

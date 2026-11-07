@@ -1,0 +1,7 @@
+# Exact versions the test suite (tests/integration_tests.py, tests/test_smoke.py) was run with on 7 Nov 2026.
+# requirements.txt keeps the broader ranges for the full app.
+numpy==2.4.2
+pandas==2.3.3
+opencv-python-headless==5.0.0.93
+scikit-image==0.26.0
+pytest==9.0.2

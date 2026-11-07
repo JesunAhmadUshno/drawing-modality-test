@@ -1,0 +1,21 @@
+{
+  "name": "drawing-modality-test-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "derive": "node scripts/derive.mjs",
+    "check": "node src/pipeline.check.mjs",
+    "predev": "node scripts/derive.mjs",
+    "dev": "vite",
+    "build": "node scripts/derive.mjs && node src/pipeline.check.mjs && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.3.4",
+    "vite": "6.4.5"
+  }
+}

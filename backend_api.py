@@ -13,9 +13,10 @@ This server:
 Run: python backend_api.py
 """
 
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, abort
 from flask_cors import CORS
 import json
+import re
 from pathlib import Path
 from datetime import datetime
 import traceback
@@ -34,6 +35,20 @@ mental_health_engine = MentalHealthAssessmentEngine()
 # Storage for session results (in production, use database)
 analysis_cache = {}
 mental_health_cache = {}
+
+# Session ids and file names become path parts under Records/, so they must be plain names:
+# no slashes, no leading dot (rules out '..' and absolute paths).
+SAFE_NAME = re.compile(r'[A-Za-z0-9_-][A-Za-z0-9_.-]*')
+
+
+def is_safe_name(value):
+    return isinstance(value, str) and SAFE_NAME.fullmatch(value) is not None
+
+
+@app.url_value_preprocessor
+def reject_unsafe_session_id(endpoint, values):
+    if values and 'session_id' in values and not is_safe_name(values['session_id']):
+        abort(400)
 
 
 @app.route('/api/health', methods=['GET'])
@@ -233,6 +248,13 @@ def submit_session():
         
         session_id = data.get('sessionId', f'session-{datetime.now().timestamp()}')
         tasks = data.get('tasks', {})
+        png_names = {task_id: task_data.get('pngFileName', f'task-{task_id}.png')
+                     for task_id, task_data in tasks.items() if 'pngData' in task_data}
+        if not is_safe_name(session_id) or not all(map(is_safe_name, png_names.values())):
+            return jsonify({
+                'error': 'sessionId and pngFileName must be plain names (letters, digits, _ - .)',
+                'status': 'failed'
+            }), 400
         
         print(f"\n📥 Submitting session: {session_id}")
         print(f"   Tasks: {len(tasks)}")
@@ -264,7 +286,7 @@ def submit_session():
             # Save PNG if present
             if 'pngData' in task_data:
                 import base64
-                png_file_name = task_data.get('pngFileName', f'task-{task_id}.png')
+                png_file_name = png_names[task_id]
                 png_file_path = png_dir / png_file_name
                 
                 # Decode and save PNG

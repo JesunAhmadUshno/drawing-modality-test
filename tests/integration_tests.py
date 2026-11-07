@@ -337,8 +337,9 @@ def main():
     
     print(results.summary())
     
-    # Return exit code based on failures
-    return 0 if len(results.failed) == 0 else 1
+    # Return exit code based on failures. A skip means test_data/ was missing, which would let the
+    # suite report green while testing nothing, so skips fail the run too.
+    return 0 if len(results.failed) == 0 and len(results.skipped) == 0 else 1
 
 
 if __name__ == "__main__":

@@ -6,6 +6,7 @@
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](CREDITS.md)
 
 **🌐 Live Demo:** [https://jesunahmadushno.github.io/drawing-modality-test/](https://jesunahmadushno.github.io/drawing-modality-test/)  
+Live dashboard: [https://jesunahmadushno.github.io/drawing-modality-test/dashboard/](https://jesunahmadushno.github.io/drawing-modality-test/dashboard/) (draw into a parity-checked port of the pipeline, replay the recorded sessions, and compare the write-up's claims with the records)  
 **💻 Full App:** [Open in Codespaces](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=JesunAhmadUshno/drawing-modality-test)  
 **📘 Setup Guide:** [SETUP_README.md](SETUP_README.md) - Complete installation & deployment instructions
 
@@ -36,6 +37,8 @@
 | Exploratory signal dimensions | 4 research questions explored: stress, anxiety, burnout, cognitive load (not clinically validated) |
 | Analysis time per session | Under 1.2 seconds |
 | Stored session records in repo | 235 files under `Records/` |
+
+> **Reproducibility note (7 Nov 2026).** The table above reflects how the project was first described. Re-reading `Records/` gives a narrower picture: 35 session JSON files hold 12 distinct stroke payloads (23 files are resubmissions, one is empty), of which 8 are substantive drawings, apparently from one participant using a mouse (every pressure value is 0.5). 23 of the 29 reports carry features. The assessment engine reads report keys the pipeline never writes, so stress is 5.0 and anxiety 12.5 for all 29 reports (`python analysis/engine_audit.py`). The figures are computed live in the [dashboard](https://jesunahmadushno.github.io/drawing-modality-test/dashboard/) and graded in [docs/research-review.md](docs/research-review.md).
 
 ## 📋 Project Overview
 

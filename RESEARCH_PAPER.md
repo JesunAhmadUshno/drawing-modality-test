@@ -406,6 +406,8 @@ For production with >1000 sessions, migration to a relational database (PostgreS
 
 ## 4. Validation and Results
 
+> **Reproducibility note (added 7 November 2026).** The numbers in this section (the task averages, the aggregate scores, the wellness distribution and the correlations) are not produced by the current code from the committed records, and the records contradict them. `Records/` holds 35 session JSON files but only 12 distinct stroke payloads (8 substantive drawings). The 23 scored reports range from 29.59 to 45.51 and all grade F. The engine's stress and anxiety indicators fall back to defaults, so stress is 5.0 and anxiety 12.5 for all 29 reports, and a correlation between them is undefined. Treat this section as a description of intended analyses, not as results. See `analysis/engine_audit.py`, `docs/research-review.md` and the live dashboard. Nothing below has been edited.
+
 ### 4.1 Dataset
 
 The system was validated on **35 real-world drawing sessions** collected from users completing three standardized tasks:

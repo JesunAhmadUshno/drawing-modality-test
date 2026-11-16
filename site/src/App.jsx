@@ -86,7 +86,7 @@ const sessionLabel = (s) => `${s.id.replace('session-', '#')} · ${s.tasks.lengt
 export default function App() {
   useReveal();
   return (
-    <div className="wrap">
+    <div className="wrap"><a className="skip" href="#top">Skip to content</a>
       <MenuBar />
       <div className="glow" aria-hidden="true" />
       <Hero />
@@ -102,14 +102,14 @@ export default function App() {
       <footer>
         Every number on this page is computed at build time from <code>Records/</code>, <code>RESEARCH_PAPER.md</code> and <code>README.md</code>, or live in your browser by a port of the repo's Python code.
         The stress, anxiety, burnout and cognitive-load scores are unvalidated heuristics, not health measures or advice. Code: see <a href={blob('LICENSE')}>LICENSE</a>.
-      </footer>
+      <nav className="support" aria-label="Support this work"><a href="https://github.com/sponsors/JesunAhmadUshno">Sponsor this work</a><a href="https://github.com/sponsors/JesunAhmadUshno">Donate</a><a href="https://buymeacoffee.com/jesun">Buy Me a Coffee</a><a href="https://calendly.com/jesunahmadushno/30min">Work with me</a></nav></footer>
     </div>
   );
 }
 
 function Hero() {
   return (
-    <header className="card hero window" id="top" data-title="pulsekey.app — audit">
+    <header className="card hero window" id="top" data-title="pulsekey.app - audit">
       <div className="head">
         <p className="eyebrow">Research prototype · drawing as a psychomotor signal</p>
         <span className="pill warn">● Unvalidated</span>
@@ -186,7 +186,7 @@ function DrawPad() {
   const options = [['', 'Load a recorded task (recorded)…'], ...D.sessions.flatMap((s) => s.tasks.map((t) => [`${s.id}|${t.id}`, `${s.id.replace('session-', '#')} · ${t.title}`]))];
   const e = res?.engine;
   return (
-    <section id="draw" className="card window reveal" data-title="canvas.draw — live">
+    <section id="draw" className="card window reveal" data-title="canvas.draw - live">
       <div className="head">
         <div>
           <p className="eyebrow">Live · runs in your browser</p>
@@ -268,7 +268,7 @@ function Replay() {
   const pad = 20, bx = Math.min(...xs) - pad, by = Math.min(...ys) - pad, bw = Math.max(...xs) - Math.min(...xs) + 2 * pad, bh = Math.max(...ys) - Math.min(...ys) + 2 * pad;
   const drawn = task.strokes.filter((s) => s.s <= cursor).length;
   return (
-    <section id="replay" className="card window reveal" data-title={`Records/${session.id}.json — replay`}>
+    <section id="replay" className="card window reveal" data-title={`Records/${session.id}.json - replay`}>
       <div className="head">
         <div>
           <p className="eyebrow">Recorded replay</p>
@@ -325,7 +325,7 @@ function PerTask() {
   const sum = vals.reduce((s, v) => s + v, 0);
   const scale = Math.max(merged, ...vals) || 1;
   return (
-    <section id="tasks" className="card window reveal" data-title="tasks.csv — per-task vs merged">
+    <section id="tasks" className="card window reveal" data-title="tasks.csv - per-task vs merged">
       <div className="head">
         <div>
           <p className="eyebrow">Unit of analysis · computed live</p>
@@ -382,7 +382,7 @@ function Scoring() {
   const line = Array.from({ length: 101 }, (_, i) => `${x(i)},${y(efficiency(sv, i))}`).join(' ');
   const effs = scored.map((r) => r.efficiency);
   return (
-    <section id="scoring" className="card window reveal" data-title="integration_pipeline.py — scoring">
+    <section id="scoring" className="card window reveal" data-title="integration_pipeline.py - scoring">
       <p className="eyebrow">Scoring formula · calculator</p>
       <h2>Two terms, one stuck at zero: why every substantive session grades F.</h2>
       <p className="sub">
@@ -429,7 +429,7 @@ function Engine() {
   const [file, setFile] = useState(D.reports.find((r) => r.score != null)?.file ?? D.reports[0].file);
   const r = D.reports.find((x) => x.file === file);
   return (
-    <section id="engine" className="card window reveal" data-title="mental_health_assessment.py — audit">
+    <section id="engine" className="card window reveal" data-title="mental_health_assessment.py - audit">
       <div className="head">
         <div>
           <p className="eyebrow">Engine audit · computed at build time</p>
@@ -472,7 +472,7 @@ function Data() {
   const bw = (W - p.l - p.r) / g.length;
   const y = (v) => p.t + (1 - v / maxC) * (H - p.t - p.b);
   return (
-    <section id="data" className="card window reveal" data-title="Records/ — provenance">
+    <section id="data" className="card window reveal" data-title="Records/ - provenance">
       <p className="eyebrow">Data provenance · computed at build time</p>
       <h2>{C.sessionFiles} files, {C.distinctPayloads} drawings: most of the record is resubmissions.</h2>
       <p className="sub">
@@ -522,7 +522,7 @@ function Claims() {
     ['Engine bug, not fixed', 'Fixing the key mismatch would change scores for new sessions and stale the old reports. That is a product decision, recorded in docs/research-review.md.'],
   ];
   return (
-    <section id="claims" className="card window reveal" data-title="RESEARCH_PAPER.md — diff vs Records/">
+    <section id="claims" className="card window reveal" data-title="RESEARCH_PAPER.md - diff vs Records/">
       <p className="eyebrow">Claims vs record</p>
       <h2>The paper's results section does not come from this code or these records.</h2>
       <p className="sub">Left: quoted from the documents, not reproduced. Right: computed from <code>Records/</code> at build time. The README now frames PulseKey as a research prototype; the paper's section 4 still reads as a validated result.</p>
@@ -554,7 +554,7 @@ function Reproduce() {
     ['RESEARCH_PAPER.md', 'Paper', 'With a reproducibility note'],
   ];
   return (
-    <section id="reproduce" className="card window reveal" data-title="Terminal — reproduce">
+    <section id="reproduce" className="card window reveal" data-title="Terminal - reproduce">
       <p className="eyebrow">Reproduce it</p>
       <h2>Three commands check the pipeline, the port and this page.</h2>
       <ol className="steps" style={{ marginTop: 16 }}>

@@ -29,4 +29,4 @@ pytest-cov>=2.12.0
 
 # Optional: For Jupyter notebook support
 jupyter>=1.0.0
-ipython>=7.0.0
+ipython>=9.18.1

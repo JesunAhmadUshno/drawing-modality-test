@@ -38,7 +38,7 @@ jobs:
           cp -r frontend/. _site/
           cp -r site/dist _site/dashboard
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
   deploy:
